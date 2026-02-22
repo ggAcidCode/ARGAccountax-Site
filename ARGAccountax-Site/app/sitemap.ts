@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 
-const baseUrl = 'https://argaccountax.ca';
+const baseUrl = 'https://taxraj.com';
 const routes = ['', '/contact', '/calculators', '/deadlines', '/resources', '/blog'];
 
 export default function sitemap(): MetadataRoute.Sitemap {

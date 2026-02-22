@@ -27,10 +27,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     description: t('homeDescription'),
     alternates: {
-      canonical: `https://argaccountax.ca/${locale}`,
+      canonical: `https://taxraj.com/${locale}`,
       languages: {
-        en: 'https://argaccountax.ca/en',
-        ta: 'https://argaccountax.ca/ta',
+        en: 'https://taxraj.com/en',
+        ta: 'https://taxraj.com/ta',
       },
     },
   };

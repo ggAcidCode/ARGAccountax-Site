@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://argaccountax.ca'),
+  metadataBase: new URL('https://taxraj.com'),
 };
 
 export default function RootLayout({

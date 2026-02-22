@@ -68,13 +68,13 @@ export async function POST(request: NextRequest) {
   }
 
   const resend = getResend();
-  const firmEmail = process.env.FIRM_EMAIL ?? 'contact@argaccountax.ca';
+  const firmEmail = process.env.FIRM_EMAIL ?? 'contact@taxraj.com';
   const timestamp = new Date().toLocaleString('en-CA', { timeZone: 'America/Toronto' });
 
   try {
     // 1. Notify the firm
     await resend.emails.send({
-      from: 'ARG Accountax Website <noreply@argaccountax.ca>',
+      from: 'ARG Accountax Website <noreply@taxraj.com>',
       to: [firmEmail],
       subject: `New Contact Form — ${clientType} — ${name}`,
       html: `
@@ -98,7 +98,7 @@ export async function POST(request: NextRequest) {
 
     // 2. Auto-reply to the submitter
     await resend.emails.send({
-      from: 'ARG Accountax <noreply@argaccountax.ca>',
+      from: 'ARG Accountax <noreply@taxraj.com>',
       to: [String(email)],
       subject: `We received your message — ARG Accountax`,
       html: `
@@ -111,11 +111,11 @@ export async function POST(request: NextRequest) {
             <h2 style="color: #0f172a;">Thank you, ${name}!</h2>
             <p style="color: #475569;">We have received your message and will get back to you within <strong>one business day</strong>.</p>
             <p style="color: #475569;">In the meantime, feel free to use our free tax tools:</p>
-            <a href="https://argaccountax.ca/en/calculators" style="display: inline-block; background: #15803d; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 8px;">
+            <a href="https://taxraj.com/en/calculators" style="display: inline-block; background: #15803d; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 8px;">
               Try the Tax Calculator
             </a>
             <hr style="margin: 32px 0; border: none; border-top: 1px solid #e2e8f0;" />
-            <p style="font-size: 12px; color: #94a3b8;">ARG Accountax · Ontario Tax Specialists · contact@argaccountax.ca</p>
+            <p style="font-size: 12px; color: #94a3b8;">ARG Accountax · Ontario Tax Specialists · contact@taxraj.com</p>
             <p style="font-size: 11px; color: #cbd5e1; margin-top: 8px;">This is an automated confirmation. This message does not constitute professional tax advice.</p>
           </div>
         </div>

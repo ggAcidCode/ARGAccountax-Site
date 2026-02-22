@@ -75,7 +75,7 @@
       "location": "Office Location",
       "locationValue": "Ontario, Canada",
       "email": "Email Us",
-      "emailValue": "contact@argaccountax.ca",
+      "emailValue": "contact@taxraj.com",
       "hours": "Hours",
       "hoursValue": "Mon – Fri: 9am – 5pm",
       "certified": "Certified",
@@ -108,7 +108,7 @@
       "submitting": "Sending...",
       "successTitle": "Message Sent!",
       "successMessage": "Thank you for reaching out. We will be in touch within one business day.",
-      "errorMessage": "Something went wrong. Please try again or email us directly at contact@argaccountax.ca."
+      "errorMessage": "Something went wrong. Please try again or email us directly at contact@taxraj.com."
     }
   },
   "Calculators": {

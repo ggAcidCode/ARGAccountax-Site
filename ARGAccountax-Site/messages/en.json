@@ -1,0 +1,181 @@
+{
+  "Nav": {
+    "home": "Home",
+    "calculators": "Tax Calculators",
+    "deadlines": "Deadlines",
+    "resources": "Resources",
+    "blog": "Guides",
+    "contact": "Contact Us",
+    "toggleLanguage": "தமிழ்"
+  },
+  "Hero": {
+    "headline": "Ontario Tax Specialists",
+    "subheadline": "Professional personal and corporate tax services for individuals, self-employed, and small businesses across Ontario.",
+    "cta": "Get Started",
+    "ctaSecondary": "Explore Tools",
+    "badge": "Serving Ontario Since Day One"
+  },
+  "Services": {
+    "title": "Our Services",
+    "subtitle": "End-to-end tax support for every stage of your financial life.",
+    "personal": {
+      "title": "Personal Tax",
+      "description": "T1 returns, RRSP planning, deductions, and refund optimization for individuals and families."
+    },
+    "selfEmployed": {
+      "title": "Self-Employed",
+      "description": "T2125 preparation, HST registration, business expense guidance, and quarterly planning."
+    },
+    "corporate": {
+      "title": "Corporate / Small Business",
+      "description": "T2 returns, CCPC tax planning, payroll, and year-end preparation for Ontario businesses."
+    }
+  },
+  "WhyUs": {
+    "title": "Why Choose ARG Accountax?",
+    "subtitle": "We go beyond filing — we help you understand and plan your taxes year-round.",
+    "experience": {
+      "title": "Ontario Expertise",
+      "description": "Deep knowledge of federal and Ontario-specific tax rules, credits, and deadlines."
+    },
+    "proactive": {
+      "title": "Proactive Approach",
+      "description": "We reach out before deadlines, not after. No surprises at tax time."
+    },
+    "bilingual": {
+      "title": "Bilingual Service",
+      "description": "We serve clients in both English and Tamil — your comfort is our priority."
+    },
+    "trusted": {
+      "title": "Trusted & Transparent",
+      "description": "Flat-fee pricing with no hidden charges. You know what you pay before we start."
+    }
+  },
+  "ToolsPreview": {
+    "title": "Free Tax Tools",
+    "subtitle": "Instant estimates and resources — no login required.",
+    "calculators": "Tax Calculators",
+    "calculatorsDesc": "Estimate your personal or corporate tax instantly with real-time Federal + Ontario calculations.",
+    "deadlines": "Deadline Calendar",
+    "deadlinesDesc": "Never miss a CRA or Ontario filing deadline. Filter by personal, corporate, or HST.",
+    "resources": "Forms & Resources",
+    "resourcesDesc": "Links to CRA forms, Ontario tax guides, and downloadable checklists.",
+    "tryNow": "Try Now",
+    "viewAll": "View All Tools"
+  },
+  "Cta": {
+    "title": "Ready to get your taxes done right?",
+    "subtitle": "Contact us today for a free initial consultation.",
+    "button": "Book a Consultation"
+  },
+  "Contact": {
+    "title": "Contact & Consultation",
+    "subtitle": "Have questions about your Ontario personal or corporate taxes? Schedule a consultation or send us a message below.",
+    "info": {
+      "location": "Office Location",
+      "locationValue": "Ontario, Canada",
+      "email": "Email Us",
+      "emailValue": "contact@argaccountax.ca",
+      "hours": "Hours",
+      "hoursValue": "Mon – Fri: 9am – 5pm",
+      "certified": "Certified",
+      "certifiedValue": "Ontario Tax Compliance"
+    },
+    "accountant": {
+      "name": "Raj Rasaratnam",
+      "title": "Principal Accountant",
+      "bio": "Providing expert personal and corporate tax solutions across Ontario. Our mission is to simplify your tax obligations while maximizing your returns."
+    },
+    "form": {
+      "name": "Full Name",
+      "namePlaceholder": "Jane Smith",
+      "email": "Email Address",
+      "emailPlaceholder": "jane@example.com",
+      "phone": "Phone Number (optional)",
+      "phonePlaceholder": "416-555-0100",
+      "clientType": "Client Type",
+      "clientTypePlaceholder": "Select an option",
+      "clientTypeOptions": {
+        "personal": "Personal Tax",
+        "selfEmployed": "Small Business / Self-Employed",
+        "corporate": "Corporate (CCPC)",
+        "notSure": "Not Sure Yet"
+      },
+      "message": "Message",
+      "messagePlaceholder": "Briefly describe your tax needs...",
+      "consent": "I consent to ARG Accountax contacting me regarding my inquiry. I understand that this communication does not constitute a formal accountant-client relationship until an engagement letter is signed.",
+      "submit": "Send Message",
+      "submitting": "Sending...",
+      "successTitle": "Message Sent!",
+      "successMessage": "Thank you for reaching out. We will be in touch within one business day.",
+      "errorMessage": "Something went wrong. Please try again or email us directly at contact@argaccountax.ca."
+    }
+  },
+  "Calculators": {
+    "title": "Tax Calculators",
+    "subtitle": "Instant estimates for Ontario residents. Estimates only — not professional tax advice.",
+    "disclaimer": "Estimates only — not professional tax advice. Consult a qualified tax professional for your specific situation.",
+    "personalTax": {
+      "title": "Federal + Ontario Income Tax Estimator",
+      "incomeLabel": "Employment Income (CAD)",
+      "incomePlaceholder": "e.g. 85000",
+      "rrspLabel": "RRSP Contribution (CAD)",
+      "rrspPlaceholder": "e.g. 10000",
+      "federalTax": "Federal Tax",
+      "ontarioTax": "Ontario Tax",
+      "totalTax": "Total Estimated Tax",
+      "averageRate": "average rate",
+      "afterTax": "After-Tax Income",
+      "marginalRate": "Marginal Rate",
+      "enterIncome": "Enter your income above to see your estimated tax breakdown."
+    }
+  },
+  "Deadlines": {
+    "title": "Tax Deadline Calendar",
+    "subtitle": "Key CRA and Ontario filing deadlines for {year}. Never miss a date.",
+    "comingSoon": "Full interactive deadline calendar with email reminders coming soon.",
+    "personalDeadline": "Personal Tax (T1) Filing Deadline",
+    "corporateDeadline": "Corporate Tax (T2) — 6 months after fiscal year-end",
+    "hstDeadline": "HST Annual Return — 3 months after fiscal year-end",
+    "installments": "Quarterly Tax Instalments"
+  },
+  "Resources": {
+    "title": "Forms & Resources",
+    "subtitle": "Links to official CRA forms, Ontario credits, and downloadable checklists.",
+    "comingSoon": "Curated resource library with search and filters coming soon."
+  },
+  "Blog": {
+    "title": "Tax Guides & Tips",
+    "subtitle": "Plain-language articles on Ontario personal and corporate taxes.",
+    "comingSoon": "Our blog and video library are coming soon."
+  },
+  "Footer": {
+    "tagline": "Ontario Tax Specialists",
+    "disclaimer": "Information on this website is for general educational purposes only and does not constitute professional tax or legal advice. Please consult a qualified accountant for advice specific to your situation.",
+    "links": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "contact": "Contact",
+      "calculators": "Tax Calculators",
+      "cra": "CRA Resources"
+    },
+    "copyright": "© {year} ARG Accountax. All rights reserved. Professional Tax Services in Ontario."
+  },
+  "Common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "backToHome": "Back to Home",
+    "comingSoon": "Coming Soon",
+    "learnMore": "Learn More"
+  },
+  "Metadata": {
+    "siteName": "ARG Accountax",
+    "homeTitle": "ARG Accountax | Ontario Tax Specialists",
+    "homeDescription": "Professional personal and corporate tax services for Ontario residents. Get instant tax estimates, deadline reminders, and expert guidance in English and Tamil.",
+    "contactTitle": "Contact & Consultation | ARG Accountax",
+    "calculatorsTitle": "Tax Calculators | ARG Accountax",
+    "deadlinesTitle": "Tax Deadline Calendar | ARG Accountax",
+    "resourcesTitle": "Forms & Resources | ARG Accountax",
+    "blogTitle": "Tax Guides | ARG Accountax"
+  }
+}

@@ -26,30 +26,41 @@ export default function HeroSection() {
             {t('badge')}
           </div>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight font-heading">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight font-heading">
             {t('headlinePart1')}
             <span className="text-[#4ade80]">{t('headlineGreen')}</span>
             {t('headlinePart2')}
           </h1>
 
-          <p className="text-lg md:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl">
+          <p className="text-base md:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl">
             {t('subheadline')}
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row flex-wrap gap-4">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-white text-[#15803d] hover:bg-[#f0fdf4] font-semibold px-8 py-3.5 rounded-xl transition-colors text-base"
+              className="inline-flex items-center justify-between sm:justify-center gap-2 bg-white text-[#15803d] hover:bg-[#f0fdf4] font-semibold px-6 sm:px-8 py-3.5 rounded-xl transition-colors text-sm sm:text-base w-full sm:w-auto"
             >
-              {t('cta')}
+              <span>{t('cta')}</span>
               <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
+            </Link>
+            <Link
+              href="/tools"
+              className="inline-flex items-center justify-between sm:justify-center gap-2 bg-[#15803d]/10 border-2 border-white/30 text-white hover:bg-white/20 font-semibold px-6 sm:px-8 py-3.5 rounded-xl transition-colors text-sm sm:text-base w-full sm:w-auto"
+            >
+              <div className="flex items-center gap-2">
+                <span className="material-symbols-outlined text-[18px]">calculate</span>
+                <span>{t('freeTools')}</span>
+              </div>
             </Link>
             <a
               href="tel:4167268055"
-              className="inline-flex items-center justify-center gap-2 border-2 border-white text-white hover:bg-white/10 font-semibold px-8 py-3.5 rounded-xl transition-colors text-base"
+              className="inline-flex items-center justify-between sm:justify-center gap-2 border-2 border-white text-white hover:bg-white/10 font-semibold px-6 sm:px-8 py-3.5 rounded-xl transition-colors text-sm sm:text-base w-full sm:w-auto"
             >
-              <span className="material-symbols-outlined text-[18px]">phone</span>
-              {t('phone')}
+              <div className="flex items-center gap-2">
+                <span className="material-symbols-outlined text-[18px]">phone</span>
+                <span>{t('phone')}</span>
+              </div>
             </a>
           </div>
         </div>

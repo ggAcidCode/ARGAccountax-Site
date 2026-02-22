@@ -34,7 +34,7 @@ function DeadlinesContent() {
     <div className="py-12 md:py-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-10">
-          <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">{t('title')}</h1>
+          <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 font-heading">{t('title')}</h1>
           <p className="text-lg text-slate-600">{t('subtitle', { year })}</p>
         </div>
 

@@ -13,7 +13,7 @@ export default function ServicesSection() {
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">{t('title')}</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 font-heading">{t('title')}</h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">{t('subtitle')}</p>
         </div>
 
@@ -26,7 +26,7 @@ export default function ServicesSection() {
               <div className="w-12 h-12 bg-[#f0fdf4] rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#dcfce7] transition-colors">
                 <span className="material-symbols-outlined text-[#15803d] text-[24px]">{icon}</span>
               </div>
-              <h3 className="text-xl font-semibold text-slate-900 mb-3">
+              <h3 className="text-xl font-semibold text-slate-900 mb-3 font-heading">
                 {t(`${key}.title`)}
               </h3>
               <p className="text-slate-600 leading-relaxed">

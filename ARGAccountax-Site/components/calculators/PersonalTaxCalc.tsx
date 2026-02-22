@@ -3,27 +3,27 @@
 import { useState, useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 
-// 2024 Federal tax brackets (after basic personal amount is applied separately)
+// 2025 Federal tax brackets (after basic personal amount is applied separately)
 const FEDERAL_BRACKETS = [
-  { min: 0, max: 55867, rate: 0.15 },
-  { min: 55867, max: 111733, rate: 0.205 },
-  { min: 111733, max: 154906, rate: 0.26 },
-  { min: 154906, max: 220000, rate: 0.29 },
-  { min: 220000, max: Infinity, rate: 0.33 },
+  { min: 0, max: 57375, rate: 0.15 },
+  { min: 57375, max: 114750, rate: 0.205 },
+  { min: 114750, max: 158468, rate: 0.26 },
+  { min: 158468, max: 221708, rate: 0.29 },
+  { min: 221708, max: Infinity, rate: 0.33 },
 ];
 
-// 2024 Ontario provincial tax brackets
+// 2025 Ontario provincial tax brackets
 const ONTARIO_BRACKETS = [
-  { min: 0, max: 51446, rate: 0.0505 },
-  { min: 51446, max: 102894, rate: 0.0915 },
-  { min: 102894, max: 150000, rate: 0.1116 },
+  { min: 0, max: 52886, rate: 0.0505 },
+  { min: 52886, max: 105775, rate: 0.0915 },
+  { min: 105775, max: 150000, rate: 0.1116 },
   { min: 150000, max: 220000, rate: 0.1216 },
   { min: 220000, max: Infinity, rate: 0.1316 },
 ];
 
-// 2024 basic personal amounts (non-refundable tax credits at lowest rate)
-const FEDERAL_BPA = 15705;
-const ONTARIO_BPA = 11865;
+// 2025 basic personal amounts (non-refundable tax credits at lowest rate)
+const FEDERAL_BPA = 16129;
+const ONTARIO_BPA = 12399;
 const FEDERAL_BPA_CREDIT = FEDERAL_BPA * 0.15;
 const ONTARIO_BPA_CREDIT = ONTARIO_BPA * 0.0505;
 
@@ -73,8 +73,8 @@ export default function PersonalTaxCalc() {
 
   return (
     <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-8 mt-6">
-      <h2 className="text-xl font-bold text-slate-900 mb-2">{t('title')}</h2>
-      <p className="text-sm text-slate-500 mb-8">2024 tax year · Federal + Ontario</p>
+      <h2 className="text-xl font-bold text-slate-900 mb-2 font-heading">{t('title')}</h2>
+      <p className="text-sm text-slate-500 mb-8">2025 tax year · Federal + Ontario</p>
 
       {/* Inputs */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">

@@ -36,7 +36,7 @@ function ResourcesContent() {
     <div className="py-12 md:py-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-10">
-          <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">{t('title')}</h1>
+          <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 font-heading">{t('title')}</h1>
           <p className="text-lg text-slate-600 mb-2">{t('subtitle')}</p>
           <p className="text-sm text-slate-400 flex items-center gap-1">
             <span className="material-symbols-outlined text-[14px]">open_in_new</span>
@@ -49,7 +49,7 @@ function ResourcesContent() {
           if (!catLinks.length) return null;
           return (
             <div key={cat} className="mb-8">
-              <h2 className="text-lg font-semibold text-slate-800 mb-3">{cat}</h2>
+              <h2 className="text-lg font-semibold text-slate-800 mb-3 font-heading">{cat}</h2>
               <div className="space-y-2">
                 {catLinks.map(({ label, url }) => (
                   <a

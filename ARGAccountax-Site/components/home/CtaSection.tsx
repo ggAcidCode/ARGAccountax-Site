@@ -7,7 +7,7 @@ export default function CtaSection() {
   return (
     <section className="py-20 bg-[#15803d]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 font-heading">
           {t('title')}
         </h2>
         <p className="text-lg text-[#dcfce7] mb-10 max-w-xl mx-auto">

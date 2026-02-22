@@ -14,7 +14,7 @@ export default function WhyUsSection() {
     <section className="py-20 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">{t('title')}</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 font-heading">{t('title')}</h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">{t('subtitle')}</p>
         </div>
 
@@ -27,7 +27,7 @@ export default function WhyUsSection() {
               <div className="text-[#15803d] mb-4">
                 <span className="material-symbols-outlined text-[28px]">{icon}</span>
               </div>
-              <h3 className="font-semibold text-slate-900 mb-2">{t(`${key}.title`)}</h3>
+              <h3 className="font-semibold text-slate-900 mb-2 font-heading">{t(`${key}.title`)}</h3>
               <p className="text-sm text-slate-600 leading-relaxed">{t(`${key}.description`)}</p>
             </div>
           ))}

@@ -1,9 +1,14 @@
 {
   "Nav": {
     "home": "Home",
-    "calculators": "Tax Calculators",
-    "deadlines": "Deadlines",
-    "resources": "Resources",
+    "tools": "Tools",
+    "toolsDropdown": {
+      "incomeTax": "Income Tax Calculator",
+      "rrsp": "RRSP Estimator",
+      "deadlines": "Deadline Calendar",
+      "resources": "Forms & Resources"
+    },
+    "viewAllTools": "View All Tools",
     "blog": "Guides",
     "contact": "Contact Us",
     "toggleLanguage": "தமிழ்"
@@ -62,6 +67,28 @@
     "resourcesDesc": "Links to CRA forms, Ontario tax guides, and downloadable checklists.",
     "tryNow": "Try Now",
     "viewAll": "View All Tools"
+  },
+  "Tools": {
+    "title": "Free Tax Tools",
+    "subtitle": "Interactive calculators and resources to help you understand your taxes. No login required.",
+    "openTool": "Open Tool",
+    "disclaimer": "Estimates only — not professional tax advice. Consult a qualified tax professional for your specific situation.",
+    "incomeTax": {
+      "title": "Federal + Ontario Income Tax Calculator",
+      "description": "Estimate your personal income tax with real-time Federal and Ontario calculations. Enter your employment income and RRSP contributions to see your tax breakdown."
+    },
+    "rrsp": {
+      "title": "RRSP Contribution Room Estimator",
+      "description": "Estimate your RRSP contribution room based on your earned income. Includes over-contribution warnings and tax savings estimates."
+    },
+    "deadlines": {
+      "title": "Tax Deadline Calendar",
+      "description": "Key CRA and Ontario filing deadlines for personal, corporate, HST, and instalment payments."
+    },
+    "resources": {
+      "title": "Forms & Resources",
+      "description": "Links to official CRA forms, Ontario tax guides, and downloadable checklists for tax preparation."
+    }
   },
   "Cta": {
     "title": "Ready to get your taxes done right?",
@@ -128,6 +155,28 @@
       "afterTax": "After-Tax Income",
       "marginalRate": "Marginal Rate",
       "enterIncome": "Enter your income above to see your estimated tax breakdown."
+    },
+    "rrspEstimator": {
+      "title": "RRSP Contribution Room Estimator",
+      "subtitle": "2025 tax year · Based on 2024 earned income",
+      "earnedIncomeLabel": "Previous Year's Earned Income (CAD)",
+      "earnedIncomePlaceholder": "e.g. 85000",
+      "pensionAdjustmentLabel": "Pension Adjustment (PA)",
+      "pensionAdjustmentPlaceholder": "e.g. 5000",
+      "carryForwardLabel": "Unused RRSP Room Carried Forward",
+      "carryForwardPlaceholder": "e.g. 20000",
+      "contributionsMadeLabel": "RRSP Contributions Made This Year",
+      "contributionsMadePlaceholder": "e.g. 10000",
+      "newRoom": "New Room Earned",
+      "totalRoom": "Total Available Room",
+      "remainingRoom": "Remaining Room",
+      "taxSavings": "Estimated Tax Savings",
+      "atMarginalRate": "at marginal rate",
+      "annualLimit": "2025 Annual Limit",
+      "annualLimitNote": "Maximum new room for 2025",
+      "bufferWarning": "You are {amount} over your contribution room, but within the $2,000 lifetime over-contribution buffer. No penalty applies, but no deduction for the excess.",
+      "overContributionWarning": "You are {amount} over your contribution room (exceeding the $2,000 buffer). A penalty of 1% per month applies to the excess amount. Consider withdrawing the excess.",
+      "enterIncome": "Enter your previous year's earned income to estimate your RRSP contribution room."
     }
   },
   "Deadlines": {
@@ -147,7 +196,8 @@
   "Blog": {
     "title": "Tax Guides & Tips",
     "subtitle": "Plain-language articles on Ontario personal and corporate taxes.",
-    "comingSoon": "Our blog and video library are coming soon."
+    "comingSoon": "Our blog and video library are coming soon.",
+    "noPosts": "Articles are being prepared — check back soon."
   },
   "Footer": {
     "tagline": "Ontario Tax Specialists",
@@ -156,7 +206,7 @@
       "privacy": "Privacy Policy",
       "terms": "Terms of Service",
       "contact": "Contact",
-      "calculators": "Tax Calculators",
+      "calculators": "Tax Tools",
       "cra": "CRA Resources"
     },
     "copyright": "© {year} ARG Accountax. All rights reserved. Professional Tax Services in Ontario."
@@ -176,6 +226,8 @@
     "calculatorsTitle": "Tax Calculators | ARG Accountax",
     "deadlinesTitle": "Tax Deadline Calendar | ARG Accountax",
     "resourcesTitle": "Forms & Resources | ARG Accountax",
-    "blogTitle": "Tax Guides | ARG Accountax"
+    "blogTitle": "Tax Guides | ARG Accountax",
+    "toolsTitle": "Free Tax Tools | ARG Accountax",
+    "rrspTitle": "RRSP Contribution Estimator | ARG Accountax"
   }
 }

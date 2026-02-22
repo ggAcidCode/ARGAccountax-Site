@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import ContactForm from '@/components/contact/ContactForm';
@@ -29,7 +30,7 @@ function ContactPageContent() {
 
         {/* Page header */}
         <div className="max-w-3xl mb-12">
-          <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">{t('title')}</h1>
+          <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 font-heading">{t('title')}</h1>
           <p className="text-lg text-slate-600">{t('subtitle')}</p>
         </div>
 
@@ -46,15 +47,16 @@ function ContactPageContent() {
             {/* Accountant card */}
             <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
               <div className="flex flex-col md:flex-row">
-                <div className="md:w-1/2 bg-slate-100 flex items-center justify-center min-h-[200px]">
-                  <div className="text-center p-8">
-                    <div className="w-20 h-20 bg-[#dcfce7] rounded-full flex items-center justify-center mx-auto mb-3">
-                      <span className="material-symbols-outlined text-[#15803d] text-[40px]">person</span>
-                    </div>
-                  </div>
+                <div className="md:w-1/2 relative min-h-[280px]">
+                  <Image
+                    src="/images/raj-rasaratnam.png"
+                    alt="Raj Rasaratnam"
+                    fill
+                    className="object-cover object-top"
+                  />
                 </div>
                 <div className="md:w-1/2 p-8 flex flex-col justify-center">
-                  <h3 className="text-xl font-bold text-slate-900">{t('accountant.name')}</h3>
+                  <h3 className="text-xl font-bold text-slate-900 font-heading">{t('accountant.name')}</h3>
                   <p className="text-[#15803d] font-medium mb-4">{t('accountant.title')}</p>
                   <p className="text-sm text-slate-600 leading-relaxed">{t('accountant.bio')}</p>
                 </div>

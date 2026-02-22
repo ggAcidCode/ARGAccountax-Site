@@ -22,7 +22,7 @@ export default function Footer() {
           {/* Links */}
           <div className="flex flex-wrap justify-center gap-6 text-sm font-medium text-slate-500">
             <Link href="/contact" className="hover:text-[#15803d] transition-colors">{t('links.contact')}</Link>
-            <Link href="/calculators" className="hover:text-[#15803d] transition-colors">{t('links.calculators')}</Link>
+            <Link href="/tools" className="hover:text-[#15803d] transition-colors">{t('links.calculators')}</Link>
             <a href="#" className="hover:text-[#15803d] transition-colors">{t('links.privacy')}</a>
             <a href="https://www.canada.ca/en/revenue-agency.html" target="_blank" rel="noopener noreferrer" className="hover:text-[#15803d] transition-colors">{t('links.cra')}</a>
           </div>

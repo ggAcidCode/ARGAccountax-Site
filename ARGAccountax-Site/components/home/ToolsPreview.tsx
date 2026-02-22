@@ -2,7 +2,7 @@ import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 
 const tools = [
-  { key: 'calculators', href: '/calculators', icon: 'calculate' },
+  { key: 'calculators', href: '/tools/income-tax-calculator', icon: 'calculate' },
   { key: 'deadlines', href: '/deadlines', icon: 'calendar_month' },
   { key: 'resources', href: '/resources', icon: 'folder_open' },
 ] as const;
@@ -14,7 +14,7 @@ export default function ToolsPreview() {
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">{t('title')}</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 font-heading">{t('title')}</h2>
           <p className="text-lg text-slate-600">{t('subtitle')}</p>
         </div>
 
@@ -27,7 +27,7 @@ export default function ToolsPreview() {
               <div className="w-12 h-12 bg-[#f0fdf4] border border-[#dcfce7] rounded-xl flex items-center justify-center mb-5">
                 <span className="material-symbols-outlined text-[#15803d] text-[24px]">{icon}</span>
               </div>
-              <h3 className="text-xl font-semibold text-slate-900 mb-2">{t(`${key}`)}</h3>
+              <h3 className="text-xl font-semibold text-slate-900 mb-2 font-heading">{t(`${key}`)}</h3>
               <p className="text-slate-600 leading-relaxed text-sm flex-grow">{t(`${key}Desc`)}</p>
               <Link
                 href={href}
@@ -42,7 +42,7 @@ export default function ToolsPreview() {
 
         <div className="text-center mt-10">
           <Link
-            href="/calculators"
+            href="/tools"
             className="inline-flex items-center gap-2 border border-slate-300 text-slate-700 hover:border-[#15803d] hover:text-[#15803d] font-medium px-6 py-2.5 rounded-xl transition-colors text-sm"
           >
             {t('viewAll')}

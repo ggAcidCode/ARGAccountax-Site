@@ -36,13 +36,13 @@ export default function Header() {
         <div className="flex justify-between items-center h-20">
 
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="bg-[#15803d] p-2 rounded">
-              <span className="material-symbols-outlined text-white text-[22px]">account_balance</span>
-            </div>
+          <Link href="/" className="flex items-center group">
             <div>
-              <div className="font-bold text-xl tracking-tight leading-none text-slate-900">ARG Accountax</div>
-              <div className="text-[10px] text-slate-500 uppercase tracking-widest mt-0.5">Ontario Tax Specialists</div>
+              <div className="font-bold text-xl tracking-tight leading-none font-heading">
+                <span className="text-slate-900">ARG </span>
+                <span className="text-[#15803d]">Accountax</span>
+              </div>
+              <div className="text-[10px] text-slate-500 uppercase tracking-widest mt-0.5">Ontario Tax Specialist</div>
             </div>
           </Link>
 

@@ -12,11 +12,11 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
 
           {/* Brand */}
-          <div className="flex items-center gap-2">
-            <div className="bg-slate-100 p-1.5 rounded">
-              <span className="material-symbols-outlined text-slate-600 text-[20px]">account_balance</span>
-            </div>
-            <span className="font-bold text-lg text-slate-900">ARG Accountax</span>
+          <div>
+            <span className="font-bold text-lg font-heading">
+              <span className="text-slate-900">ARG </span>
+              <span className="text-[#15803d]">Accountax</span>
+            </span>
           </div>
 
           {/* Links */}

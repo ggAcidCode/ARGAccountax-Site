@@ -14,11 +14,13 @@
     "toggleLanguage": "தமிழ்"
   },
   "Hero": {
-    "headline": "Ontario Tax Specialists",
-    "subheadline": "Professional personal and corporate tax services for individuals, self-employed, and small businesses across Ontario.",
-    "cta": "Get Started",
-    "ctaSecondary": "Explore Tools",
-    "badge": "Serving Ontario Since Day One"
+    "headlinePart1": "Expert Tax Solutions for ",
+    "headlineGreen": "Ontario Individuals",
+    "headlinePart2": " & Businesses",
+    "subheadline": "Led by Raj Rasaratnam, ARG Accountax provides professional, reliable, and bilingual tax services. We simplify complex tax and accounting and year round financial consulting so you can focus on what matters most.",
+    "cta": "Contact Us Now",
+    "phone": "416-726-8055",
+    "badge": "Serving Clients Since 1995"
   },
   "Services": {
     "title": "Our Services",
@@ -200,7 +202,7 @@
     "noPosts": "Articles are being prepared — check back soon."
   },
   "Footer": {
-    "tagline": "Ontario Tax Specialists",
+    "tagline": "Ontario Tax Specialist",
     "disclaimer": "Information on this website is for general educational purposes only and does not constitute professional tax or legal advice. Please consult a qualified accountant for advice specific to your situation.",
     "links": {
       "privacy": "Privacy Policy",
@@ -220,7 +222,7 @@
   },
   "Metadata": {
     "siteName": "ARG Accountax",
-    "homeTitle": "ARG Accountax | Ontario Tax Specialists",
+    "homeTitle": "ARG Accountax | Ontario Tax Specialist",
     "homeDescription": "Professional personal and corporate tax services for Ontario residents. Get instant tax estimates, deadline reminders, and expert guidance in English and Tamil.",
     "contactTitle": "Contact & Consultation | ARG Accountax",
     "calculatorsTitle": "Tax Calculators | ARG Accountax",

@@ -27,7 +27,9 @@ export default function HeroSection() {
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight font-heading">
-            {t('headline')}
+            {t('headlinePart1')}
+            <span className="text-[#4ade80]">{t('headlineGreen')}</span>
+            {t('headlinePart2')}
           </h1>
 
           <p className="text-lg md:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl">
@@ -42,13 +44,13 @@ export default function HeroSection() {
               {t('cta')}
               <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
             </Link>
-            <Link
-              href="/tools"
+            <a
+              href="tel:4167268055"
               className="inline-flex items-center justify-center gap-2 border-2 border-white text-white hover:bg-white/10 font-semibold px-8 py-3.5 rounded-xl transition-colors text-base"
             >
-              <span className="material-symbols-outlined text-[18px]">calculate</span>
-              {t('ctaSecondary')}
-            </Link>
+              <span className="material-symbols-outlined text-[18px]">phone</span>
+              {t('phone')}
+            </a>
           </div>
         </div>
       </div>

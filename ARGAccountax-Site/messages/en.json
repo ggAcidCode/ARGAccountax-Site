@@ -103,13 +103,11 @@
     "subtitle": "Have questions about your Ontario personal or corporate taxes? Schedule a consultation or send us a message below.",
     "info": {
       "location": "Office Location",
-      "locationValue": "Ontario, Canada",
+      "locationValue": "Markham, Ontario / Virtual",
       "email": "Email Us",
-      "emailValue": "contact@taxraj.com",
+      "emailValue": "raj@taxraj.com",
       "hours": "Hours",
-      "hoursValue": "Mon – Fri: 9am – 5pm",
-      "certified": "Certified",
-      "certifiedValue": "Ontario Tax Compliance"
+      "hoursValue": "9 AM to 10 PM EST, Sunday to Saturday"
     },
     "accountant": {
       "name": "Raj Rasaratnam",

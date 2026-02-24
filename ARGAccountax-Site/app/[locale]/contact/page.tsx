@@ -67,8 +67,9 @@ function ContactPageContent() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <InfoCard icon="location_on" label={t('info.location')} value={t('info.locationValue')} />
               <InfoCard icon="alternate_email" label={t('info.email')} value={t('info.emailValue')} />
-              <InfoCard icon="schedule" label={t('info.hours')} value={t('info.hoursValue')} />
-              <InfoCard icon="verified" label={t('info.certified')} value={t('info.certifiedValue')} />
+              <div className="sm:col-span-2">
+                <InfoCard icon="schedule" label={t('info.hours')} value={t('info.hoursValue')} />
+              </div>
             </div>
 
           </div>

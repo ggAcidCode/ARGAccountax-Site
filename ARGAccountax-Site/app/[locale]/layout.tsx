@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import Script from 'next/script';
 import '../globals.css';
 
 type Props = {
@@ -50,7 +51,23 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <html lang={locale} className={fontClass}>
+      <head>
+        {/* Google Analytics */}
+        <Script
+          strategy="afterInteractive"
+          src={`https://www.googletagmanager.com/gtag/js?id=G-HGG2BXCSRE`}
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-HGG2BXCSRE');
+          `}
+        </Script>
+      </head>
       <body className="bg-slate-50 text-slate-900 antialiased flex flex-col min-h-screen">
+
         <NextIntlClientProvider messages={messages}>
           <Header />
           <main className="flex-grow">

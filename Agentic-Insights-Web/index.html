@@ -1,0 +1,3502 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agentic Insights — Product. Process. People.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --blue: #008DFA;
+      --blue-dark: #005696;
+      --blue-glow: rgba(0, 141, 250, 0.10);
+      --black: #00192B;
+      --off-black: #00223B;
+      --charcoal: #003154;
+      --white: #FFFFFF;
+      --off-white: #F9F8F6;
+      --light-gray: #EDECEB;
+      --mid-gray: #9A9A9A;
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      --font-mono: 'DM Mono', monospace;
+      --nav-h: 70px;
+      --ease: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--white);
+      color: var(--black);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      background: none;
+      font-family: var(--font-body);
+    }
+
+    /* PAGE SYSTEM */
+    .page {
+      display: none;
+      min-height: 100vh;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
+      height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 52px;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--light-gray);
+      transition: box-shadow 0.3s var(--ease);
+    }
+
+    nav.scrolled {
+      box-shadow: 0 2px 32px rgba(0, 0, 0, 0.06);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      cursor: pointer;
+    }
+
+    .logo-mark {
+      width: 34px;
+      height: 34px;
+      flex-shrink: 0;
+    }
+
+    .logo-name {
+      font-family: var(--font-display);
+      font-size: 21px;
+      letter-spacing: 1.5px;
+      color: var(--black);
+      line-height: 1;
+    }
+
+    .logo-name span {
+      color: var(--blue);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-links li a {
+      font-size: 12.5px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      transition: color 0.3s var(--ease);
+      position: relative;
+    }
+
+    .nav-links li a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background: var(--blue);
+      transition: width 0.28s ease;
+    }
+
+    .nav-links li a:hover,
+    .nav-links li a.active {
+      color: var(--black);
+    }
+
+    .nav-links li a:hover::after,
+    .nav-links li a.active::after {
+      width: 100%;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+
+
+    .btn-nav-cta {
+      background: var(--blue);
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 10px 22px;
+      transition: background 0.3s;
+      display: inline-block;
+    }
+
+    .btn-nav-cta:hover {
+      background: var(--blue-dark);
+    }
+
+    /* SHARED */
+    .container {
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 0 48px;
+    }
+
+    .section {
+      padding: 100px 0;
+    }
+
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 18px;
+    }
+
+    .section-tag::before {
+      content: '';
+      width: 20px;
+      height: 1.5px;
+      background: var(--blue);
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(42px, 5vw, 68px);
+      line-height: 0.94;
+      letter-spacing: 1px;
+      color: var(--black);
+    }
+
+    .section-title .red {
+      color: var(--blue);
+    }
+
+    .section-title .outline {
+      -webkit-text-stroke: 1.5px var(--black);
+      color: transparent;
+    }
+
+    .section-sub {
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--charcoal);
+      max-width: 560px;
+      margin-top: 20px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--blue);
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 15px 32px;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: var(--blue-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary svg {
+      transition: transform 0.2s;
+    }
+
+    .btn-primary:hover svg {
+      transform: translateX(4px);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      color: var(--black);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 14px 30px;
+      border: 1.5px solid var(--black);
+      transition: all 0.3s;
+    }
+
+    .btn-outline:hover {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .red-line {
+      width: 48px;
+      height: 3px;
+      background: var(--blue);
+      margin-bottom: 24px;
+    }
+
+    /* REVEAL ANIMATION */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ========== HOME ========== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: var(--nav-h);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg-grid {
+      position: absolute;
+      inset: 0;
+      opacity: 0.03;
+      background-image: linear-gradient(var(--black) 1px, transparent 1px), linear-gradient(90deg, var(--black) 1px, transparent 1px);
+      background-size: 52px 52px;
+    }
+
+    .hero-accent {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 44%;
+      background: var(--off-white);
+      clip-path: polygon(12% 0, 100% 0, 100% 100%, 0% 100%);
+      z-index: 0;
+    }
+
+    .hero-redstrip {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--blue);
+      z-index: 1;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 80px 48px;
+    }
+
+    .hero-kicker {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 22px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hero-kicker::before {
+      content: '';
+      width: 28px;
+      height: 1.5px;
+      background: var(--blue);
+    }
+
+    .hero-h1 {
+      font-family: var(--font-display);
+      font-size: clamp(60px, 7vw, 100px);
+      line-height: 0.91;
+      letter-spacing: 1px;
+      color: var(--black);
+      margin-bottom: 28px;
+    }
+
+    .hero-h1 .red {
+      color: var(--blue);
+    }
+
+    .hero-h1 .outline {
+      -webkit-text-stroke: 2px var(--black);
+      color: transparent;
+    }
+
+    .hero-p {
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--charcoal);
+      margin-bottom: 42px;
+      max-width: 480px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--mid-gray);
+      margin-top: 28px;
+    }
+
+    .hero-badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
+    }
+
+    .hero-visual {
+      position: relative;
+      height: 480px;
+    }
+
+    .hcard {
+      position: absolute;
+      background: var(--white);
+      border: 1px solid var(--light-gray);
+      box-shadow: 0 8px 48px rgba(0, 0, 0, 0.08);
+      padding: 24px 28px;
+    }
+
+    .hcard-1 {
+      top: 0;
+      right: 0;
+      width: 280px;
+      animation: float 5s ease-in-out infinite;
+    }
+
+    .hcard-2 {
+      top: 140px;
+      left: 0;
+      width: 264px;
+      animation: float 5s ease-in-out 1.5s infinite;
+    }
+
+    .hcard-3 {
+      bottom: 30px;
+      right: 40px;
+      width: 234px;
+      animation: float 5s ease-in-out 0.8s infinite;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .hcard-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 10px;
+    }
+
+    .hcard-val {
+      font-family: var(--font-display);
+      font-size: 38px;
+      color: var(--black);
+      line-height: 1;
+    }
+
+    .hcard-desc {
+      font-size: 12px;
+      color: var(--mid-gray);
+      margin-top: 6px;
+    }
+
+    .hcard-bar {
+      height: 4px;
+      background: var(--light-gray);
+      margin-top: 14px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hcard-bar-fill {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      background: var(--blue);
+    }
+
+    .hcard-tag {
+      display: inline-block;
+      padding: 3px 8px;
+      background: var(--blue-glow);
+      color: var(--blue);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .hcard-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .hcard-step {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--charcoal);
+    }
+
+    .hcard-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--blue);
+      flex-shrink: 0;
+    }
+
+    /* STATS */
+    .stats-bar {
+      background: var(--black);
+      padding: 32px 0;
+    }
+
+    .stats-inner {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 0 48px;
+    }
+
+    .stat-item {
+      padding: 0 32px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .stat-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 10%;
+      bottom: 10%;
+      width: 1px;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .stat-item:first-child {
+      padding-left: 0;
+    }
+
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: 48px;
+      color: var(--white);
+      line-height: 1;
+    }
+
+    .stat-num span {
+      color: var(--blue);
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--mid-gray);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    /* DELIVER */
+    .deliver-header {
+      margin-bottom: 64px;
+    }
+
+    .deliver-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: var(--light-gray);
+    }
+
+    .dcard {
+      background: var(--white);
+      padding: 52px 48px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+    }
+
+    .dcard::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: var(--blue);
+      transition: width 0.4s ease;
+    }
+
+    .dcard:hover::before {
+      width: 100%;
+    }
+
+    .dcard:hover {
+      background: var(--off-white);
+    }
+
+    .dcard-num {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--mid-gray);
+      letter-spacing: 0.1em;
+      margin-bottom: 20px;
+    }
+
+    .dcard-icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 20px;
+    }
+
+    .dcard-h3 {
+      font-family: var(--font-display);
+      font-size: 28px;
+      letter-spacing: 0.5px;
+      color: var(--black);
+      margin-bottom: 14px;
+    }
+
+    .dcard-p {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--charcoal);
+    }
+
+    .dcard-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 24px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--blue);
+      transition: gap 0.2s;
+    }
+
+    .dcard-link:hover {
+      gap: 12px;
+    }
+
+    /* INDUSTRIES */
+    .industries {
+      background: var(--off-white);
+    }
+
+    .ind-btns {
+      display: flex;
+      gap: 2px;
+      flex-wrap: wrap;
+    }
+
+    .ind-btn {
+      padding: 10px 22px;
+      background: var(--white);
+      border: 1px solid var(--light-gray);
+      font-size: 13px;
+      color: var(--charcoal);
+      cursor: pointer;
+      transition: all 0.3s;
+      font-family: var(--font-body);
+    }
+
+    .ind-btn:hover,
+    .ind-btn.active {
+      background: var(--blue);
+      color: var(--white);
+      border-color: var(--blue);
+    }
+
+    .ind-detail {
+      margin-top: 48px;
+      display: none;
+      animation: fadeUp 0.4s ease forwards;
+    }
+
+    .ind-detail.active {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .ind-title {
+      font-family: var(--font-display);
+      font-size: 42px;
+      margin-bottom: 16px;
+    }
+
+    .ind-desc {
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--charcoal);
+    }
+
+    .ind-feats {
+      margin-top: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .ind-feat {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 14px;
+      color: var(--charcoal);
+      line-height: 1.5;
+    }
+
+    .ind-feat-dot {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      background: var(--blue-glow);
+      border: 1px solid var(--blue);
+      margin-top: 1px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ind-feat-dot::before {
+      content: '✓';
+      font-size: 9px;
+      color: var(--blue);
+      font-weight: 700;
+    }
+
+    .ind-visual {
+      background: var(--white);
+      border: 1px solid var(--light-gray);
+      padding: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 260px;
+    }
+
+    .ind-bignum {
+      font-family: var(--font-display);
+      font-size: 96px;
+      color: var(--blue);
+      line-height: 1;
+      opacity: 0.12;
+    }
+
+    .ind-visual-label {
+      font-size: 12px;
+      color: var(--mid-gray);
+      margin-top: 6px;
+      text-align: center;
+    }
+
+    .ind-no-match {
+      margin-top: 48px;
+      padding: 36px;
+      background: var(--white);
+      border-left: 3px solid var(--blue);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .ind-no-title {
+      font-family: var(--font-display);
+      font-size: 24px;
+      margin-bottom: 6px;
+    }
+
+    .ind-no-desc {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--charcoal);
+    }
+
+    /* CTA BANNER */
+    .cta-banner {
+      background: var(--black);
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-banner-grid {
+      position: absolute;
+      inset: 0;
+      opacity: 0.04;
+      background-image: linear-gradient(rgba(255, 255, 255, 0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.5) 1px, transparent 1px);
+      background-size: 52px 52px;
+    }
+
+    .cta-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 48px;
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 0 48px;
+    }
+
+    .cta-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 16px;
+    }
+
+    .cta-h2 {
+      font-family: var(--font-display);
+      font-size: clamp(38px, 4vw, 62px);
+      color: var(--white);
+      line-height: 0.95;
+      letter-spacing: 1px;
+    }
+
+    .cta-h2 span {
+      color: var(--blue);
+    }
+
+    .cta-p {
+      font-size: 16px;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.5);
+      margin-top: 16px;
+      max-width: 380px;
+      line-height: 1.65;
+    }
+
+    .cta-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: flex-end;
+      flex-shrink: 0;
+    }
+
+    /* ========== PRODUCT PAGE ========== */
+    .product-hero {
+      padding-top: var(--nav-h);
+      background: var(--black);
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-hero-grid {
+      position: absolute;
+      inset: 0;
+      opacity: 0.05;
+      background-image: linear-gradient(rgba(255, 255, 255, 0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.5) 1px, transparent 1px);
+      background-size: 52px 52px;
+    }
+
+    .product-hero-line {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--blue);
+      opacity: 0.3;
+    }
+
+    .product-hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 80px 48px;
+    }
+
+    .product-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 24px;
+    }
+
+    .product-eyebrow::before {
+      content: '';
+      width: 24px;
+      height: 1.5px;
+      background: var(--blue);
+    }
+
+    .product-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 10px 20px;
+      margin-bottom: 36px;
+    }
+
+    .product-badge-name {
+      font-family: var(--font-display);
+      font-size: 24px;
+      color: var(--white);
+      letter-spacing: 2px;
+    }
+
+    .product-badge-name span {
+      color: var(--blue);
+    }
+
+    .product-h1 {
+      font-family: var(--font-display);
+      font-size: clamp(64px, 8vw, 112px);
+      line-height: 0.9;
+      color: var(--white);
+      letter-spacing: 1.5px;
+      margin-bottom: 28px;
+    }
+
+    .product-h1 span {
+      color: var(--blue);
+    }
+
+    .product-sub {
+      font-size: 19px;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.55);
+      max-width: 600px;
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+
+    /* PS GRID */
+    .ps-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: var(--light-gray);
+      margin-top: 56px;
+    }
+
+    .ps-col {
+      background: var(--white);
+      padding: 56px 48px;
+    }
+
+    .ps-col.sol {
+      background: var(--off-white);
+    }
+
+    .ps-col-tag {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .ps-col-tag::before {
+      content: '';
+      width: 16px;
+      height: 1.5px;
+      background: currentColor;
+    }
+
+    .ps-col-tag.prob {
+      color: var(--charcoal);
+    }
+
+    .ps-col-tag.soln {
+      color: var(--blue);
+    }
+
+    .ps-issue {
+      margin-bottom: 32px;
+    }
+
+    .ps-issue-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 8px;
+    }
+
+    .ps-issue-desc {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--charcoal);
+    }
+
+    .ps-sol-item {
+      margin-bottom: 32px;
+    }
+
+    .ps-sol-title {
+      font-family: var(--font-display);
+      font-size: 24px;
+      color: var(--black);
+      margin-bottom: 10px;
+    }
+
+    .ps-sol-desc {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--charcoal);
+    }
+
+    /* HOW IT WORKS */
+    .hiw-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--light-gray);
+      margin-top: 60px;
+    }
+
+    .hiw-step {
+      background: var(--white);
+      padding: 48px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hiw-step::after {
+      content: attr(data-num);
+      position: absolute;
+      bottom: -10px;
+      right: 16px;
+      font-family: var(--font-display);
+      font-size: 120px;
+      color: var(--off-white);
+      line-height: 1;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .hiw-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hiw-num {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--blue);
+      letter-spacing: 0.12em;
+      margin-bottom: 20px;
+    }
+
+    .hiw-title {
+      font-family: var(--font-display);
+      font-size: 30px;
+      color: var(--black);
+      margin-bottom: 14px;
+    }
+
+    .hiw-desc {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--charcoal);
+    }
+
+    /* FAQ */
+    .faq-list {
+      margin-top: 56px;
+      border-top: 1px solid var(--light-gray);
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--light-gray);
+    }
+
+    .faq-q {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 26px 0;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--black);
+      text-align: left;
+      gap: 20px;
+      transition: color 0.3s;
+    }
+
+    .faq-q:hover {
+      color: var(--blue);
+    }
+
+    .faq-icon {
+      width: 28px;
+      height: 28px;
+      flex-shrink: 0;
+      border: 1.5px solid var(--light-gray);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+      font-size: 18px;
+      color: var(--mid-gray);
+    }
+
+    .faq-item.open .faq-icon {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: var(--white);
+    }
+
+    .faq-a {
+      display: none;
+      padding: 0 0 26px;
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--charcoal);
+      max-width: 760px;
+    }
+
+    .faq-item.open .faq-a {
+      display: block;
+    }
+
+    /* ========== ENGAGEMENT MODEL ========== */
+    .engage-hero {
+      padding-top: var(--nav-h);
+      background: var(--off-white);
+      min-height: 52vh;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid var(--light-gray);
+    }
+
+    .engage-hero-inner {
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 80px 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .engage-tagline {
+      font-family: var(--font-display);
+      font-size: clamp(50px, 6.5vw, 84px);
+      line-height: 0.92;
+      color: var(--black);
+      letter-spacing: 1px;
+    }
+
+    .engage-tagline .red {
+      color: var(--blue);
+    }
+
+    .engage-tagline .outline {
+      -webkit-text-stroke: 1.5px var(--black);
+      color: transparent;
+    }
+
+    .engage-sub {
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--charcoal);
+      margin-top: 24px;
+    }
+
+    /* STEPS TIMELINE */
+    .steps-timeline {
+      margin-top: 60px;
+      position: relative;
+    }
+
+    .steps-timeline::before {
+      content: '';
+      position: absolute;
+      left: 26px;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--blue), var(--light-gray));
+    }
+
+    .step-row {
+      display: flex;
+      gap: 48px;
+      margin-bottom: 4px;
+      background: var(--white);
+    }
+
+    .step-left {
+      flex-shrink: 0;
+      width: 52px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .step-dot {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 2px solid var(--light-gray);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--mid-gray);
+      flex-shrink: 0;
+      transition: all 0.3s;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-row:hover .step-dot {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: var(--white);
+    }
+
+    .step-content {
+      flex: 1;
+      padding: 16px 0 52px;
+    }
+
+    .step-num {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 8px;
+    }
+
+    .step-title {
+      font-family: var(--font-display);
+      font-size: 38px;
+      color: var(--black);
+      margin-bottom: 14px;
+    }
+
+    .step-desc {
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--charcoal);
+      max-width: 640px;
+    }
+
+    .step-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .step-tag {
+      padding: 5px 12px;
+      background: var(--off-white);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+    }
+
+    /* PRICING */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--light-gray);
+      margin-top: 56px;
+    }
+
+    .pc-card {
+      background: var(--white);
+      padding: 48px 40px;
+    }
+
+    .pc-card.featured {
+      background: var(--black);
+    }
+
+    .pc-card.featured .pc-title,
+    .pc-card.featured .pc-price,
+    .pc-card.featured .pc-desc,
+    .pc-card.featured .pc-price-note {
+      color: var(--white);
+    }
+
+    .pc-card.featured .pc-feat {
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .pc-card.featured .pc-divider {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .pc-badge {
+      display: inline-block;
+      padding: 4px 10px;
+      background: var(--blue);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+
+    .pc-title {
+      font-family: var(--font-display);
+      font-size: 32px;
+      color: var(--black);
+      margin-bottom: 8px;
+    }
+
+    .pc-price {
+      font-family: var(--font-display);
+      font-size: 52px;
+      color: var(--black);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .pc-price-note {
+      font-size: 12px;
+      color: var(--mid-gray);
+      margin-bottom: 24px;
+    }
+
+    .pc-divider {
+      height: 1px;
+      background: var(--light-gray);
+      margin-bottom: 24px;
+    }
+
+    .pc-desc {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--charcoal);
+      margin-bottom: 24px;
+    }
+
+    .pc-feats {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+
+    .pc-feat {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13.5px;
+      color: var(--charcoal);
+    }
+
+    .pc-feat-icon {
+      color: var(--blue);
+      font-size: 14px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    /* ========== CONTACT ========== */
+    .contact-hero {
+      padding-top: var(--nav-h);
+      background: var(--black);
+      min-height: 44vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .contact-hero-inner {
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 80px 48px;
+    }
+
+    .contact-h1 {
+      font-family: var(--font-display);
+      font-size: clamp(72px, 9vw, 124px);
+      line-height: 0.88;
+      letter-spacing: 1.5px;
+      color: var(--white);
+    }
+
+    .contact-h1 span {
+      color: var(--blue);
+    }
+
+    .contact-sub {
+      font-size: 18px;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.5);
+      margin-top: 20px;
+      max-width: 520px;
+      line-height: 1.7;
+    }
+
+    .contact-body {
+      background: var(--white);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 80px 48px;
+    }
+
+    .cm-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--mid-gray);
+      margin-bottom: 8px;
+    }
+
+    .cm-value {
+      font-size: 17px;
+      color: var(--black);
+    }
+
+    .cm-value a {
+      color: var(--blue);
+    }
+
+    .cm-value a:hover {
+      text-decoration: underline;
+    }
+
+    .contact-method {
+      margin-bottom: 36px;
+    }
+
+    .contact-book {
+      margin-top: 40px;
+      padding: 36px;
+      background: var(--off-white);
+      border-left: 3px solid var(--blue);
+    }
+
+    .contact-book-title {
+      font-family: var(--font-display);
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .contact-book-desc {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--charcoal);
+      margin-bottom: 20px;
+    }
+
+    .form-card {
+      background: var(--white);
+      border: 1px solid var(--light-gray);
+      padding: 48px;
+    }
+
+    .form-title {
+      font-family: var(--font-display);
+      font-size: 34px;
+      margin-bottom: 6px;
+    }
+
+    .form-sub {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--mid-gray);
+      margin-bottom: 36px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      margin-bottom: 8px;
+    }
+
+    .form-input,
+    .form-textarea,
+    .form-select {
+      width: 100%;
+      padding: 14px 16px;
+      background: var(--off-white);
+      border: 1px solid var(--light-gray);
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--black);
+      outline: none;
+      transition: border-color 0.3s;
+      appearance: none;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus,
+    .form-select:focus {
+      border-color: var(--blue);
+      background: var(--white);
+    }
+
+    .form-textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .form-submit {
+      width: 100%;
+      padding: 16px;
+      background: var(--blue);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .form-submit:hover {
+      background: var(--blue-dark);
+    }
+
+    .form-note {
+      font-size: 12px;
+      color: var(--mid-gray);
+      margin-top: 14px;
+      text-align: center;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--off-black);
+      padding: 60px 0 32px;
+      border-top: 3px solid var(--blue);
+    }
+
+    .footer-inner {
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 0 48px;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .footer-logo-mark {
+      width: 30px;
+      height: 30px;
+    }
+
+    .footer-logo-name {
+      font-family: var(--font-display);
+      font-size: 19px;
+      letter-spacing: 1px;
+      color: var(--white);
+    }
+
+    .footer-logo-name span {
+      color: var(--blue);
+    }
+
+    .footer-tagline {
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.4);
+      line-height: 1.7;
+      max-width: 260px;
+    }
+
+    .footer-col-title {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--mid-gray);
+      margin-bottom: 18px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      font-size: 13.5px;
+      color: rgba(255, 255, 255, 0.45);
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: var(--white);
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 28px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.25);
+    }
+
+    .footer-legal {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-legal a {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.25);
+      transition: color 0.3s;
+    }
+
+    .footer-legal a:hover {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:1024px) {
+      nav {
+        padding: 0 28px;
+      }
+
+      .container,
+      .hero-inner,
+      .engage-hero-inner,
+      .contact-grid {
+        padding: 60px 28px;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .hero-visual {
+        display: none;
+      }
+
+      .deliver-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-inner {
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        padding: 0 28px;
+      }
+
+      .stat-item:nth-child(2)::after {
+        display: none;
+      }
+
+      .stat-item {
+        padding-left: 0;
+      }
+
+      .ind-detail.active {
+        grid-template-columns: 1fr;
+      }
+
+      .ps-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hiw-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .engage-hero-inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+
+      .cta-inner {
+        flex-direction: column;
+        padding: 0 28px;
+      }
+
+      .cta-actions {
+        align-items: flex-start;
+      }
+
+      .steps-timeline::before {
+        display: none;
+      }
+
+      .step-left {
+        display: none;
+      }
+
+      .step-row {
+        gap: 0;
+      }
+    }
+
+    /* BURGER MENU STYLES */
+    .mobile-menu-toggle {
+      display: none;
+      z-index: 205;
+      /* Stays above logo and nav */
+      position: relative;
+    }
+
+    @media(max-width:768px) {
+      .logo-name {
+        font-size: 18px;
+        z-index: 206;
+        /* Logo stays on top */
+      }
+
+      .btn-nav-cta {
+        padding: 8px 14px;
+        font-size: 11px;
+        z-index: 206;
+      }
+
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 100vh;
+        background: var(--white);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 40px 28px;
+        gap: 24px;
+        z-index: 200;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s;
+      }
+
+      .nav-links.mobile-active {
+        display: flex;
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .nav-links li a {
+        font-size: 28px;
+        font-family: var(--font-display);
+        letter-spacing: 2px;
+      }
+
+      .mobile-menu-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        width: 30px;
+        height: 30px;
+        justify-content: center;
+        align-items: flex-end;
+      }
+
+      .mobile-menu-toggle span {
+        width: 24px;
+        height: 2px;
+        background: var(--black);
+        display: block;
+        transition: 0.3s;
+      }
+
+      .mobile-menu-toggle span:last-child {
+        width: 16px;
+      }
+
+      .mobile-menu-toggle.active span:first-child {
+        transform: rotate(45deg) translate(5px, 6px);
+      }
+
+      .mobile-menu-toggle.active span:last-child {
+        transform: rotate(-45deg) translate(0px, -1px);
+        width: 24px;
+      }
+
+      .hero-h1 {
+        font-size: 42px;
+      }
+
+      .hero-p {
+        font-size: 16px;
+      }
+
+      .container {
+        padding: 0 20px;
+      }
+
+      .contact-grid {
+        padding: 40px 0;
+      }
+
+      .section {
+        padding: 40px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ═══════ NAV ═══════ -->
+  <nav id="mainNav">
+    <a class="logo" href="#" onclick="showPage('home');return false;">
+      <div class="logo-mark">
+        <svg viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="17,2 32,31 2,31" fill="none" stroke="#008DFA" stroke-width="2.4" />
+          <polygon points="17,10 25,27 9,27" fill="#008DFA" />
+        </svg>
+      </div>
+      <span class="logo-name">Agentic<span>Insights</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#" onclick="showPage('home');return false;" id="nav-home" class="active">Home</a></li>
+      <li><a href="#" onclick="showPage('product');return false;" id="nav-product">Product</a></li>
+      <li><a href="#" onclick="showPage('process');return false;" id="nav-process">Process</a></li>
+      <li><a href="#" onclick="showPage('people');return false;" id="nav-people">People</a></li>
+      <li><a href="#" onclick="showPage('engage');return false;" id="nav-engage">Engagement Model</a></li>
+      <li><a href="#" onclick="showPage('contact');return false;" id="nav-contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="#" class="btn-nav-cta" onclick="showPage('contact');return false;">Get Started</a>
+      <button class="mobile-menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+
+  <!-- ══════════════════════════════════
+     PAGE: HOME
+══════════════════════════════════ -->
+  <div class="page active" id="page-home">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div style="position:absolute;inset:0;z-index:0;">
+        <div class="hero-bg-grid"></div>
+        <div class="hero-accent"></div>
+        <div class="hero-redstrip"></div>
+      </div>
+      <div class="hero-inner">
+        <div style="position:relative;z-index:1;">
+          <div class="hero-kicker">Product. Process. People.</div>
+          <h1 class="hero-h1">
+            Smarter Products. <br>
+            <span class="red">Better Processes.</span> <br>
+            <span class="outline">Your Best People — at Scale.</span>
+          </h1>
+          <p class="hero-p">We help enterprises build smarter products, redesign their operations through AI, and scale what makes their people great — without losing what makes them unique.</p>
+          <div class="hero-actions">
+            <a href="#" class="btn-primary" onclick="showPage('contact');return false;">
+              See How It Works
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </a>
+            <a href="#" class="btn-outline" onclick="showPage('engage');return false;">View Our Approach</a>
+          </div>
+          <div class="hero-badge">
+            <span class="hero-badge-dot"></span>
+            Enterprise-ready · Globally deployed · ROI-first
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hcard hcard-1">
+            <div class="hcard-label">Revenue Impact</div>
+            <div class="hcard-val">+340%</div>
+            <div class="hcard-desc">Average uplift from AI-encoded workflows</div>
+            <div class="hcard-bar">
+              <div class="hcard-bar-fill" style="width:82%"></div>
+            </div>
+          </div>
+          <div class="hcard hcard-2">
+            <div class="hcard-tag">Three Pillars</div>
+            <div class="hcard-label">Agentic Transformation</div>
+            <div class="hcard-steps">
+              <div class="hcard-step">
+                <div class="hcard-dot"></div>Smarter Products
+              </div>
+              <div class="hcard-step">
+                <div class="hcard-dot"></div>Better Processes
+              </div>
+              <div class="hcard-step">
+                <div class="hcard-dot"></div>Your Best People
+              </div>
+            </div>
+          </div>
+          <div class="hcard hcard-3">
+            <div class="hcard-label">Time to Deploy</div>
+            <div class="hcard-val">14<span style="font-size:22px;color:var(--mid-gray);margin-left:4px;">days</span>
+            </div>
+            <div class="hcard-desc">From brief to live AI agent</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <div class="stats-bar">
+      <div class="stats-inner">
+        <div class="stat-item">
+          <div class="stat-num">10<span>×</span></div>
+          <div class="stat-label">Faster time-to-market for AI-enabled products</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">200<span>+</span></div>
+          <div class="stat-label">Agentic workflows delivered</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">14<span>d</span></div>
+          <div class="stat-label">Average time to first live agent</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">92<span>%</span></div>
+          <div class="stat-label">ROI achieved within 90 days</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WHAT WE DELIVER -->
+    <section class="section" style="background:var(--white);">
+      <div class="container">
+        <div class="deliver-header reveal">
+          <div class="section-tag">Our Three Pillars</div>
+          <h2 class="section-title">Three pillars.<br><span class="red">One agentic edge.</span></h2>
+          <p class="section-sub">We help enterprises build smarter products, redesign operations through AI, and scale what makes their people great — across three pillars that align with how leaders actually buy transformation.</p>
+        </div>
+        <div class="deliver-grid" style="grid-template-columns:1fr 1fr 1fr;">
+          <div class="dcard reveal">
+            <div class="dcard-num">01</div>
+            <div class="dcard-icon">
+              <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+                <rect x="6" y="8" width="32" height="28" rx="1" stroke="#008DFA" stroke-width="1.8" />
+                <path d="M14 28V20m8 8V16m8 12V12" stroke="#008DFA" stroke-width="1.8" stroke-linecap="round" />
+                <path d="M6 36h32" stroke="#008DFA" stroke-width="1.8" stroke-linecap="round" />
+              </svg>
+            </div>
+            <h3 class="dcard-h3">Product</h3>
+            <p class="dcard-p">Incorporating AI capabilities within product development — ensuring the right level of AI is used. We help you ship smarter products faster, without over-engineering or under-investing.</p>
+            <a href="#" class="dcard-link" onclick="showPage('product');return false;">Explore Product <svg width="14"
+                height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg></a>
+          </div>
+          <div class="dcard reveal">
+            <div class="dcard-num">02</div>
+            <div class="dcard-icon">
+              <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+                <path d="M8 14h28M8 22h20M8 30h24" stroke="#008DFA" stroke-width="1.8" stroke-linecap="round" />
+                <circle cx="34" cy="30" r="6" stroke="#008DFA" stroke-width="1.8" />
+                <path d="M32 30l1.5 1.5L36 28" stroke="#008DFA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <h3 class="dcard-h3">Process</h3>
+            <p class="dcard-p">Improving internal and customer-facing processes through AI and agentic automation. Anchored in two outcomes: better customer experience and better colleague experience.</p>
+            <a href="#" class="dcard-link" onclick="showPage('process');return false;">Explore Process <svg width="14"
+                height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg></a>
+          </div>
+          <div class="dcard reveal">
+            <div class="dcard-num">03</div>
+            <div class="dcard-icon">
+              <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+                <circle cx="22" cy="14" r="7" stroke="#008DFA" stroke-width="1.8" />
+                <path d="M8 36c0-7.732 6.268-14 14-14s14 6.268 14 14" stroke="#008DFA" stroke-width="1.8" stroke-linecap="round" />
+                <path d="M28 26l3 3 5-5" stroke="#008DFA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <h3 class="dcard-h3">People</h3>
+            <p class="dcard-p">Elevating organisational output by imprinting what makes your people unique into scalable AI agents. Powered by Imprint — so your output is consistent, scalable, and authentically yours.</p>
+            <a href="#" class="dcard-link" onclick="showPage('people');return false;">Explore People <svg width="14"
+                height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INDUSTRIES -->
+    <section class="section industries">
+      <div class="container">
+        <div style="margin-bottom:48px;" class="reveal">
+          <div class="section-tag">Industries We Accelerate</div>
+          <h2 class="section-title">Built for<br>your <span class="red">sector.</span></h2>
+          <p class="section-sub">We build from your logic and your IP — which means our solutions work across almost any industry, whether through smarter products, better processes, or people amplified by AI.</p>
+        </div>
+        <div class="ind-btns">
+          <button class="ind-btn active" onclick="selInd(this,'consulting')">Consulting Firms</button>
+          <button class="ind-btn" onclick="selInd(this,'hr')">HR Departments</button>
+          <button class="ind-btn" onclick="selInd(this,'hedge')">Hedge Funds</button>
+          <button class="ind-btn" onclick="selInd(this,'pe')">Private Equity</button>
+          <button class="ind-btn" onclick="selInd(this,'creative')">Creative Agencies</button>
+          <button class="ind-btn" onclick="selInd(this,'ngo')">NGOs &amp; Donors</button>
+          <button class="ind-btn" onclick="selInd(this,'finserv')">Financial Services</button>
+          <button class="ind-btn" onclick="selInd(this,'pharma')">Pharmaceuticals</button>
+          <button class="ind-btn" onclick="selInd(this,'legal')">Legal</button>
+          <button class="ind-btn" onclick="selInd(this,'auto')">Automotive</button>
+        </div>
+
+        <div class="ind-detail active" id="ind-consulting">
+          <div>
+            <div class="red-line"></div>
+            <h3 class="ind-title">Consulting Firms</h3>
+            <p class="ind-desc">Turn your IP into proprietary client-facing AI. Create branded agentic consultants and
+              transform end-of-engagement assets into always-on value delivery engines.</p>
+            <div class="ind-feats">
+              <div class="ind-feat">
+                <div class="ind-feat-dot"></div>Brand-safe AI agents that embody your firm's methodology
+              </div>
+              <div class="ind-feat">
+                <div class="ind-feat-dot"></div>Convert deliverables into scalable, reusable AI products
+              </div>
+              <div class="ind-feat">
+                <div class="ind-feat-dot"></div>Protect and monetise your proprietary frameworks
+              </div>
+              <div class="ind-feat">
+                <div class="ind-feat-dot"></div>Accelerate research and knowledge synthesis at scale
+              </div>
+            </div>
+            <a href="#" class="btn-primary" style="margin-top:28px" onclick="showPage('contact');return false;">Get in
+              Touch <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg></a>
+          </div>
+          <div class="ind-visual">
+            <div style="text-align:center">
+              <div class="ind-bignum">01</div>
+              <div class="ind-visual-label">Consulting Firms · Agentic Insights</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ind-detail" id="ind-hr">
+          <div>
+            <div class="red-line"></div>
+            <h3 class="ind-title">HR Departments</h3>
+            <p class="ind-desc">Accelerate onboarding and new-hire time to value. Transform your company intranet into
+              agentic mentorship and training that scales without growing your HR team.</p>
+            <div class="ind-feats">
+              <div class="ind-feat">
+                <div class="ind-feat-dot"></div>Agentic onboarding journeys personalised per role
+              </div>
+              <div class="ind-feat">
+                <div class="ind-feat-dot"></div>On-demand policy and compliance AI advisors
+              </div>
+              <div class="ind-feat">
+                <div class="ind-feat-dot"></div>Training agents that adapt to individual learning pace
+              </div>
+              <div class="ind-feat">
+                <div class="ind-feat-dot"></div>Reduce HR overhead while improving employee experience
+              </div>
+            </div>
+            <a href="#" class="btn-primary" style="margin-top:28px" onclick="showPage('contact');return false;">Get in
+              Touch <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg></a>
+          </div>
+          <div class="ind-visual">
+            <div style="text-align:center">
+              <div class="ind-bignum">02</div>
+              <div class="ind-visual-label">HR Departments · Agentic Insights</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ind-detail" id="ind-hedge">
+          <div>
+            <div class="red-line"></div>
+            <h3 class="ind-title">Hedge Funds</h3>
+            <p class="ind-desc">Encode your best analysts' market intelligence into AI agents that surface targeted
+              investment opportunities using your proprietary thesis — at machine speed.</p>
+            <div class="ind-feats">
+              <div class="ind-feat">
+                <div class="ind-feat-dot"></div>Encode unique investment frameworks into AI analysts
+              </div>
+              <div class="ind-feat">
+                <div class="ind-feat-dot"></div>AI-powered due diligence and signal generation
+              </div>
+              <div class="ind-feat">
+                <div class="ind-feat-dot"></div>Proprietary intelligence competitors can't replicate
+              </div>
+              <div class="ind-feat">
+                <div class="ind-feat-dot"></div>Scale research coverage without scaling headcount
+              </div>
+            </div>
+            <a href="#" class="btn-primary" style="margin-top:28px" onclick="showPage('contact');return false;">Get in
+              Touch <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg></a>
+          </div>
+          <div class="ind-visual">
+            <div style="text-align:center">
+              <div class="ind-bignum">03</div>
+              <div class="ind-visual-label">Hedge Funds · Agentic Insights</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ind-detail" id="ind-pe">
+          <div>
+            <div class="red-line"></div>
+            <h3 class="ind-title">Private Equity</h3>
+            <p class="ind-desc">Increase EBITDA and reduce the cost of scaling portfolio businesses. Deploy an agentic
+              workforce instead of expensive offshore outsourcing — with better consistency and control.</p>
+            <div class="ind-feats">
+              <div class="ind-feat">
+                <div class="ind-feat-dot"></div>Agentic workforce deployed across portfolio companies
+              </div>
+              <div class="ind-feat">
+                <div class="ind-feat-dot"></div>Standardise value creation playbooks via AI
+              </div>
+              <div class="ind-feat">
+                <div class="ind-feat-dot"></div>Reduce operational costs across the portfolio
+              </div>
+              <div class="ind-feat">
+                <div class="ind-feat-dot"></div>Accelerate time to value post-acquisition
+              </div>
+            </div>
+            <a href="#" class="btn-primary" style="margin-top:28px" onclick="showPage('contact');return false;">Get in
+              Touch <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg></a>
+          </div>
+          <div class="ind-visual">
+            <div style="text-align:center">
+              <div class="ind-bignum">04</div>
+              <div class="ind-visual-label">Private Equity · Agentic Insights</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ind-detail" id="ind-creative">
+          <div>
+            <div class="red-line"></div>
+            <h3 class="ind-title">Creative Agencies</h3>
+            <p class="ind-desc">Build brand-safe AI agents that support ideation and create messaging in any language
+              for any market — without scaling your team or your cost base.</p>
+            <div class="ind-feats">
+              <div class="ind-feat">
+                <div class="ind-feat-dot"></div>Brand-trained agents that match your client's tone of voice
+              </div>
+              <div class="ind-feat">
+                <div class="ind-feat-dot"></div>Multi-language content generation at scale
+              </div>
+              <div class="ind-feat">
+                <div class="ind-feat-dot"></div>Faster ideation cycles with AI-augmented creative teams
+              </div>
+              <div class="ind-feat">
+                <div class="ind-feat-dot"></div>Protect creative quality while increasing output volume
+              </div>
+            </div>
+            <a href="#" class="btn-primary" style="margin-top:28px" onclick="showPage('contact');return false;">Get in
+              Touch <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg></a>
+          </div>
+          <div class="ind-visual">
+            <div style="text-align:center">
+              <div class="ind-bignum">05</div>
+              <div class="ind-visual-label">Creative Agencies · Agentic Insights</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ind-detail" id="ind-ngo">
+          <div>
+            <div class="red-line"></div>
+            <h3 class="ind-title">NGOs &amp; Donors</h3>
+            <p class="ind-desc">Scale the efficacy and regional relevance of training programmes. Reach more people,
+              with more impact, in more languages, at a fraction of the cost.</p>
+            <div class="ind-feats">
+              <div class="ind-feat">
+                <div class="ind-feat-dot"></div>Multi-language AI programme delivery agents
+              </div>
+              <div class="ind-feat">
+                <div class="ind-feat-dot"></div>Personalised training for diverse beneficiary populations
+              </div>
+              <div class="ind-feat">
+                <div class="ind-feat-dot"></div>Measurable impact reporting built into every workflow
+              </div>
+              <div class="ind-feat">
+                <div class="ind-feat-dot"></div>Scale without proportionally scaling operational costs
+              </div>
+            </div>
+            <a href="#" class="btn-primary" style="margin-top:28px" onclick="showPage('contact');return false;">Get in
+              Touch <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg></a>
+          </div>
+          <div class="ind-visual">
+            <div style="text-align:center">
+              <div class="ind-bignum">06</div>
+              <div class="ind-visual-label">NGOs &amp; Donors · Agentic Insights</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ind-detail" id="ind-finserv">
+          <div>
+            <div class="red-line"></div>
+            <h3 class="ind-title">Financial Services</h3>
+            <p class="ind-desc">Encode repeatable decisions with clear logic. Manage internal risk and gain better
+              customer insights through AI agents that operate with speed and precision at scale.</p>
+            <div class="ind-feats">
+              <div class="ind-feat">
+                <div class="ind-feat-dot"></div>AI-encoded credit, risk, and compliance workflows
+              </div>
+              <div class="ind-feat">
+                <div class="ind-feat-dot"></div>Faster analysis and intelligent risk-flagging at scale
+              </div>
+              <div class="ind-feat">
+                <div class="ind-feat-dot"></div>Customer-facing agents trained on your products
+              </div>
+              <div class="ind-feat">
+                <div class="ind-feat-dot"></div>Audit-ready, fully explainable agent decision paths
+              </div>
+            </div>
+            <a href="#" class="btn-primary" style="margin-top:28px" onclick="showPage('contact');return false;">Get in
+              Touch <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg></a>
+          </div>
+          <div class="ind-visual">
+            <div style="text-align:center">
+              <div class="ind-bignum">07</div>
+              <div class="ind-visual-label">Financial Services · Agentic Insights</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ind-detail" id="ind-pharma">
+          <div>
+            <div class="red-line"></div>
+            <h3 class="ind-title">Pharmaceuticals</h3>
+            <p class="ind-desc">Encode protocol adherence, trial workflows, and field team logic into agents that
+              support R&amp;D and accelerate better product delivery globally.</p>
+            <div class="ind-feats">
+              <div class="ind-feat">
+                <div class="ind-feat-dot"></div>AI agents trained on regulatory and trial protocols
+              </div>
+              <div class="ind-feat">
+                <div class="ind-feat-dot"></div>Field team enablement and training acceleration
+              </div>
+              <div class="ind-feat">
+                <div class="ind-feat-dot"></div>Research synthesis and signal identification at scale
+              </div>
+              <div class="ind-feat">
+                <div class="ind-feat-dot"></div>Global deployment with local language compliance
+              </div>
+            </div>
+            <a href="#" class="btn-primary" style="margin-top:28px" onclick="showPage('contact');return false;">Get in
+              Touch <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg></a>
+          </div>
+          <div class="ind-visual">
+            <div style="text-align:center">
+              <div class="ind-bignum">08</div>
+              <div class="ind-visual-label">Pharmaceuticals · Agentic Insights</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ind-detail" id="ind-legal">
+          <div>
+            <div class="red-line"></div>
+            <h3 class="ind-title">Legal</h3>
+            <p class="ind-desc">Encode your legal opinion into document and contract review agents. Accelerate feedback,
+              edits, drafting, and risk identification with confidence and full auditability.</p>
+            <div class="ind-feats">
+              <div class="ind-feat">
+                <div class="ind-feat-dot"></div>AI contract review trained on your firm's precedents
+              </div>
+              <div class="ind-feat">
+                <div class="ind-feat-dot"></div>Automated first-draft generation in your house style
+              </div>
+              <div class="ind-feat">
+                <div class="ind-feat-dot"></div>Risk identification agents with explainable reasoning
+              </div>
+              <div class="ind-feat">
+                <div class="ind-feat-dot"></div>Free junior time for higher-value strategic work
+              </div>
+            </div>
+            <a href="#" class="btn-primary" style="margin-top:28px" onclick="showPage('contact');return false;">Get in
+              Touch <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg></a>
+          </div>
+          <div class="ind-visual">
+            <div style="text-align:center">
+              <div class="ind-bignum">09</div>
+              <div class="ind-visual-label">Legal · Agentic Insights</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ind-detail" id="ind-auto">
+          <div>
+            <div class="red-line"></div>
+            <h3 class="ind-title">Automotive</h3>
+            <p class="ind-desc">Turn complex sales processes and compliance logic into AI agents that support global
+              dealership training and customer experience — with total consistency across markets.</p>
+            <div class="ind-feats">
+              <div class="ind-feat">
+                <div class="ind-feat-dot"></div>AI-encoded sales process and objection handling
+              </div>
+              <div class="ind-feat">
+                <div class="ind-feat-dot"></div>Compliance training agents for global dealership networks
+              </div>
+              <div class="ind-feat">
+                <div class="ind-feat-dot"></div>Customer-facing product AI in any language
+              </div>
+              <div class="ind-feat">
+                <div class="ind-feat-dot"></div>Consistent brand experience at every touchpoint
+              </div>
+            </div>
+            <a href="#" class="btn-primary" style="margin-top:28px" onclick="showPage('contact');return false;">Get in
+              Touch <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg></a>
+          </div>
+          <div class="ind-visual">
+            <div style="text-align:center">
+              <div class="ind-bignum">10</div>
+              <div class="ind-visual-label">Automotive · Agentic Insights</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ind-no-match reveal">
+          <div>
+            <div class="ind-no-title">Don't see your industry?</div>
+            <div class="ind-no-desc">If your business has knowledge workers, we can build agentic solutions for you. Get
+              in touch to explore what's possible.</div>
+          </div>
+          <a href="#" class="btn-primary" onclick="showPage('contact');return false;">Explore Your Use Case <svg
+              width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <div class="cta-banner">
+      <div class="cta-banner-grid"></div>
+      <div class="cta-inner">
+        <div>
+          <div class="cta-tag">Enterprise Ready · Globally Available</div>
+          <h2 class="cta-h2">Ready to get ahead — <br><span>and stay there?</span></h2>
+          <p class="cta-p">Transform your products, processes, and people with AI built around what makes your organisation unique.</p>
+        </div>
+        <div class="cta-actions">
+          <a href="#" class="btn-primary" onclick="showPage('contact');return false;">Get in Touch <svg width="14"
+              height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg></a>
+          <a href="#" class="btn-outline" style="color:var(--white);border-color:rgba(255,255,255,0.2);"
+            onclick="showPage('engage');return false;">View Engagement Model</a>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /page-home -->
+
+
+  <!-- ══════════════════════════════════
+     PAGE: PRODUCT PILLAR
+══════════════════════════════════ -->
+  <div class="page" id="page-product">
+
+    <section class="product-hero">
+      <div class="product-hero-grid"></div>
+      <div class="product-hero-line"></div>
+      <div class="product-hero-inner">
+        <div class="product-eyebrow">Pillar 01 — Product</div>
+        <div class="product-badge">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <rect x="3" y="4" width="18" height="16" rx="1" stroke="#008DFA" stroke-width="1.8" />
+            <path d="M7 16V11m4 5V9m4 7V7" stroke="#008DFA" stroke-width="1.8" stroke-linecap="round" />
+          </svg>
+          <span class="product-badge-name">Product</span>
+        </div>
+        <h1 class="product-h1">The Right AI.<br><span>For the Right Product.</span></h1>
+        <p class="product-sub">Most organisations over-engineer AI into their products — adding cost and complexity with no return — or under-invest and miss competitive opportunities. We help you find the right level of AI for your specific product context.</p>
+        <a href="#" class="btn-primary" onclick="showPage('contact');return false;">Talk to Us <svg width="16"
+            height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg></a>
+      </div>
+    </section>
+
+    <section class="section" style="background:var(--white);">
+      <div class="container">
+        <div class="reveal">
+          <div class="section-tag">The Challenge</div>
+          <h2 class="section-title">AI in products: <span class="red">get it right</span><br>or pay twice.</h2>
+        </div>
+        <div class="ps-grid">
+          <div class="ps-col">
+            <div class="ps-col-tag prob">The Problem</div>
+            <div class="ps-issue">
+              <div class="ps-issue-title">Over-engineering adds cost without return</div>
+              <div class="ps-issue-desc">Reaching for the most powerful AI model or the most complex architecture when a simpler solution would serve — and scale — better. The result is bloated products that are expensive to maintain and hard to explain to customers.</div>
+            </div>
+            <div class="ps-issue">
+              <div class="ps-issue-title">Under-investing misses competitive opportunities</div>
+              <div class="ps-issue-desc">Equally, failing to embed AI where it genuinely adds value means watching competitors ship smarter products faster. The window to act is narrowing in almost every sector.</div>
+            </div>
+            <div class="ps-issue">
+              <div class="ps-issue-title">Generic AI doesn't encode your IP</div>
+              <div class="ps-issue-desc">Off-the-shelf AI products are built for everyone, optimised for no one. Your proprietary knowledge, methodology, and domain expertise should be the foundation of any AI you ship — not an afterthought.</div>
+            </div>
+          </div>
+          <div class="ps-col sol">
+            <div class="ps-col-tag soln">What We Do</div>
+            <div class="ps-sol-item">
+              <div class="ps-sol-title">AI product strategy: where AI adds genuine value</div>
+              <div class="ps-sol-desc">We help you answer the fundamental question: where does AI actually make your product better, and where is it noise? Starting with your users, your competitive context, and your roadmap — not the latest model release.</div>
+            </div>
+            <div class="ps-sol-item">
+              <div class="ps-sol-title">AI-first engineering for rapid prototyping</div>
+              <div class="ps-sol-desc">Our AI-first engineering approach reduces time to market by 10× — without compromising technical depth or scalability. From proof of concept to production-ready platform, at speed.</div>
+            </div>
+            <div class="ps-sol-item">
+              <div class="ps-sol-title">Turning proprietary IP into scalable AI products</div>
+              <div class="ps-sol-desc">A consulting firm building an AI advisory tool isn't just deploying a chatbot — it's deploying their methodology, their frameworks, their way of thinking. We encode your domain expertise into the product logic itself.</div>
+            </div>
+            <div class="ps-sol-item">
+              <div class="ps-sol-title">Right-sizing AI to the actual use case</div>
+              <div class="ps-sol-desc">Right-sized AI, not maximum AI. We match model sophistication to actual requirements — so your product is maintainable, cost-effective, and built to scale with your business, not against it.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background:var(--off-white);">
+      <div class="container">
+        <div class="reveal">
+          <div class="section-tag">How We Work</div>
+          <h2 class="section-title">3 steps to your<br><span class="red">AI product edge.</span></h2>
+          <p class="section-sub">A focused, fast path from product context to AI capability that fits — and delivers.</p>
+        </div>
+        <div class="hiw-grid">
+          <div class="hiw-step reveal" data-num="1">
+            <div class="hiw-inner">
+              <div class="hiw-num">Step 01</div>
+              <div class="hiw-title">Assess your product context</div>
+              <div class="hiw-desc">We analyse your product roadmap, competitive landscape, and user needs to identify where AI adds genuine value — and where it doesn't. No assumptions, no bias toward complexity.</div>
+            </div>
+          </div>
+          <div class="hiw-step reveal" data-num="2">
+            <div class="hiw-inner">
+              <div class="hiw-num">Step 02</div>
+              <div class="hiw-title">Design the right AI capability</div>
+              <div class="hiw-desc">We design the AI architecture that fits your product, your team, and your budget — whether that's an AI-native product, an AI-enhanced feature, or knowing when AI simply isn't the answer.</div>
+            </div>
+          </div>
+          <div class="hiw-step reveal" data-num="3">
+            <div class="hiw-inner">
+              <div class="hiw-num">Step 03</div>
+              <div class="hiw-title">Build and ship fast</div>
+              <div class="hiw-desc">Our AI-first engineering approach takes you from design to live product at speed — with your IP encoded into the product logic, ready to scale.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background:var(--white);">
+      <div class="container">
+        <div class="reveal">
+          <div class="section-tag">Common Questions</div>
+          <h2 class="section-title">Frequently<br>asked.</h2>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">How do we know if our product needs AI?
+              <span class="faq-icon">+</span></button>
+            <div class="faq-a">The right question isn't "should we add AI?" — it's "where does AI make this product meaningfully better for our users?" We help you answer that honestly, starting with your users and your competitive context rather than the capabilities of the latest model.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">Can you work with our existing product team?
+              <span class="faq-icon">+</span></button>
+            <div class="faq-a">Yes. We work alongside your existing product and engineering teams, bringing AI strategy and AI-first engineering capability without disrupting your existing ways of working. We can operate as an embedded partner, a specialist team, or a strategic advisor — whatever fits your context.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">What does "right-sizing AI" actually mean in practice?
+              <span class="faq-icon">+</span></button>
+            <div class="faq-a">It means matching the sophistication of the AI solution to the actual requirements of the use case. A retrieval-augmented document assistant doesn't need the same architecture as a multi-agent orchestration system. We design for what you need — not what's technically impressive.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">Do you use our data or IP to train your models?
+              <span class="faq-icon">+</span></button>
+            <div class="faq-a">No. Your proprietary data, methodology, and IP stay yours. It is never used to improve our models or shared with other clients.</div>
+          </div>
+        </div>
+        <div style="margin-top:32px;font-size:14px;color:var(--mid-gray);">Still have questions? <a href="#"
+            onclick="showPage('contact');return false;" style="color:var(--blue);">Email us at
+            hello@agenticinsights.com</a></div>
+      </div>
+    </section>
+
+    <div class="cta-banner">
+      <div class="cta-banner-grid"></div>
+      <div class="cta-inner">
+        <div>
+          <div class="cta-tag">Product Pillar</div>
+          <h2 class="cta-h2">Ship smarter.<br><span>Move faster.</span></h2>
+          <p class="cta-p">Find the right level of AI for your product — and build it at speed.</p>
+        </div>
+        <div class="cta-actions">
+          <a href="#" class="btn-primary" onclick="showPage('contact');return false;">Get in Touch <svg width="14"
+              height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg></a>
+          <a href="#" class="btn-outline" style="color:var(--white);border-color:rgba(255,255,255,0.2);"
+            onclick="showPage('engage');return false;">View Engagement Model</a>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /page-product -->
+
+
+  <!-- ══════════════════════════════════
+     PAGE: PROCESS PILLAR
+══════════════════════════════════ -->
+  <div class="page" id="page-process">
+
+    <section class="product-hero">
+      <div class="product-hero-grid"></div>
+      <div class="product-hero-line"></div>
+      <div class="product-hero-inner">
+        <div class="product-eyebrow">Pillar 02 — Process</div>
+        <div class="product-badge">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M4 7h16M4 12h10M4 17h13" stroke="#008DFA" stroke-width="1.8" stroke-linecap="round" />
+            <circle cx="19" cy="17" r="3" stroke="#008DFA" stroke-width="1.8" />
+            <path d="M18 17l.8.8L21 15.5" stroke="#008DFA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <span class="product-badge-name">Process</span>
+        </div>
+        <h1 class="product-h1">Better Processes.<br><span>Better Experiences.</span></h1>
+        <p class="product-sub">Anchored in two outcomes: better customer experience and better colleague experience. We discover, design, and deploy AI-driven process improvements — from intelligent automation to agentic orchestration of complex, cross-functional workflows.</p>
+        <a href="#" class="btn-primary" onclick="showPage('contact');return false;">Talk to Us <svg width="16"
+            height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg></a>
+      </div>
+    </section>
+
+    <section class="section" style="background:var(--white);">
+      <div class="container">
+        <div class="reveal">
+          <div class="section-tag">The Challenge</div>
+          <h2 class="section-title">Processes that hurt <span class="red">customers</span><br>and colleagues.</h2>
+        </div>
+        <div class="ps-grid">
+          <div class="ps-col">
+            <div class="ps-col-tag prob">The Problem</div>
+            <div class="ps-issue">
+              <div class="ps-issue-title">Processes that frustrate customers</div>
+              <div class="ps-issue-desc">Slow resolution times, inconsistent service, and friction-filled journeys erode trust and drive churn. Most organisations know their customer experience is below where it should be — but fixing the underlying processes feels complex and costly.</div>
+            </div>
+            <div class="ps-issue">
+              <div class="ps-issue-title">Colleagues stuck on low-value tasks</div>
+              <div class="ps-issue-desc">When your best people spend their time on manual, repetitive, or administrative work, you lose twice — once in productivity, and again in engagement. Colleague experience is as important as customer experience, and often more neglected.</div>
+            </div>
+            <div class="ps-issue">
+              <div class="ps-issue-title">Automation that replicates the problem</div>
+              <div class="ps-issue-desc">Most RPA and automation tools replicate processes as-is — without improving the quality, judgment, or experience behind them. You end up automating the wrong thing at the wrong speed.</div>
+            </div>
+          </div>
+          <div class="ps-col sol">
+            <div class="ps-col-tag soln">What We Do</div>
+            <div class="ps-sol-item">
+              <div class="ps-sol-title">Process discovery and automation opportunity identification</div>
+              <div class="ps-sol-desc">We map your processes to identify where AI creates the most impact — for customers and colleagues. Not every process should be automated; we focus on the ones that matter most and are ready to transform.</div>
+            </div>
+            <div class="ps-sol-item">
+              <div class="ps-sol-title">Customer experience transformation through AI-powered journeys</div>
+              <div class="ps-sol-desc">We redesign customer-facing processes around AI — faster resolution, smarter routing, more personalised interactions — with measurable CX outcomes, not just cycle-time reduction.</div>
+            </div>
+            <div class="ps-sol-item">
+              <div class="ps-sol-title">Colleague experience improvement — removing friction, not just cost</div>
+              <div class="ps-sol-desc">AI that removes friction for colleagues — from intelligent document processing to agentic task handling — so your people can focus on the work that actually requires human judgment and care.</div>
+            </div>
+            <div class="ps-sol-item">
+              <div class="ps-sol-title">Agentic orchestration of multi-step, cross-functional workflows</div>
+              <div class="ps-sol-desc">Where single-step automation reaches its limits, agentic orchestration takes over — coordinating AI agents across teams, systems, and decision points to handle complex end-to-end processes with consistency and speed.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background:var(--off-white);">
+      <div class="container">
+        <div class="reveal">
+          <div class="section-tag">How We Work</div>
+          <h2 class="section-title">3 steps to better<br><span class="red">CX and EX.</span></h2>
+          <p class="section-sub">A focused path from process discovery to live AI-powered improvement — with experience at the centre.</p>
+        </div>
+        <div class="hiw-grid">
+          <div class="hiw-step reveal" data-num="1">
+            <div class="hiw-inner">
+              <div class="hiw-num">Step 01</div>
+              <div class="hiw-title">Discover &amp; map</div>
+              <div class="hiw-desc">We embed with your teams to map your highest-impact processes — identifying the friction points that hurt customers, slow colleagues, and create the most opportunity for AI-driven improvement.</div>
+            </div>
+          </div>
+          <div class="hiw-step reveal" data-num="2">
+            <div class="hiw-inner">
+              <div class="hiw-num">Step 02</div>
+              <div class="hiw-title">Design AI-powered journeys</div>
+              <div class="hiw-desc">We redesign your processes around AI and agentic automation — with CX and colleague experience as the north star, and measurable outcomes defined before we build anything.</div>
+            </div>
+          </div>
+          <div class="hiw-step reveal" data-num="3">
+            <div class="hiw-inner">
+              <div class="hiw-num">Step 03</div>
+              <div class="hiw-title">Deploy and measure</div>
+              <div class="hiw-desc">We deploy your AI-powered processes, measure the outcomes that matter — NPS, resolution time, colleague satisfaction, time saved — and iterate to compound the improvement.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background:var(--white);">
+      <div class="container">
+        <div class="reveal">
+          <div class="section-tag">Common Questions</div>
+          <h2 class="section-title">Frequently<br>asked.</h2>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">How is this different from standard RPA or automation?
+              <span class="faq-icon">+</span></button>
+            <div class="faq-a">Traditional RPA replicates processes as-is — it automates the steps without improving the quality or judgment behind them. Our approach redesigns processes around AI and agentic automation, with the explicit goal of improving the experience for both customers and colleagues. We automate the right things, the right way.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">What do you mean by "colleague experience"?
+              <span class="faq-icon">+</span></button>
+            <div class="faq-a">Colleague experience (EX) is about removing friction from the working lives of your people — not just cutting costs. When your teams spend less time on repetitive or low-value tasks, they have more capacity for the work that requires genuine human judgment. Better EX also drives better CX: people who enjoy their work serve customers better.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">What kinds of processes are best suited to this?
+              <span class="faq-icon">+</span></button>
+            <div class="faq-a">High-volume, multi-step processes with clear quality standards are usually the best candidates — customer service and resolution workflows, document processing, approvals and compliance checks, onboarding journeys, and cross-functional handoffs. We help you prioritise based on impact and readiness.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">How do you measure success?
+              <span class="faq-icon">+</span></button>
+            <div class="faq-a">We define success metrics before we build anything — and they focus on outcomes that matter: NPS improvement, resolution time reduction, colleague time saved, error rate reduction. Not just "processes automated."</div>
+          </div>
+        </div>
+        <div style="margin-top:32px;font-size:14px;color:var(--mid-gray);">Still have questions? <a href="#"
+            onclick="showPage('contact');return false;" style="color:var(--blue);">Email us at
+            hello@agenticinsights.com</a></div>
+      </div>
+    </section>
+
+    <div class="cta-banner">
+      <div class="cta-banner-grid"></div>
+      <div class="cta-inner">
+        <div>
+          <div class="cta-tag">Process Pillar</div>
+          <h2 class="cta-h2">Experience-led.<br><span>Not efficiency-only.</span></h2>
+          <p class="cta-p">Better for customers and the people who serve them — measurably.</p>
+        </div>
+        <div class="cta-actions">
+          <a href="#" class="btn-primary" onclick="showPage('contact');return false;">Get in Touch <svg width="14"
+              height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg></a>
+          <a href="#" class="btn-outline" style="color:var(--white);border-color:rgba(255,255,255,0.2);"
+            onclick="showPage('engage');return false;">View Engagement Model</a>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /page-process -->
+
+
+  <!-- ══════════════════════════════════
+     PAGE: PEOPLE PILLAR — Imprint
+══════════════════════════════════ -->
+  <div class="page" id="page-people">
+
+    <section class="product-hero">
+      <div class="product-hero-grid"></div>
+      <div class="product-hero-line"></div>
+      <div class="product-hero-inner">
+        <div class="product-eyebrow">Pillar 03 — People</div>
+        <div class="product-badge">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="8" r="4" stroke="#008DFA" stroke-width="1.8" />
+            <path d="M4 20c0-4.418 3.582-8 8-8s8 3.582 8 8" stroke="#008DFA" stroke-width="1.8" stroke-linecap="round" />
+            <path d="M16 14l2 2 3-3" stroke="#008DFA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <span class="product-badge-name">People / <span>Imprint</span></span>
+        </div>
+        <h1 class="product-h1">Your Best People.<br><span>Working at Scale.</span></h1>
+        <p class="product-sub">The People pillar is powered by Imprint — our methodology for capturing the expertise, judgment, and distinctive qualities of your best people and encoding them into AI agents that are consistently, scalably, and authentically yours.</p>
+        <a href="#" class="btn-primary" onclick="showPage('contact');return false;">See How It Works <svg width="16"
+            height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg></a>
+      </div>
+    </section>
+
+    <section class="section" style="background:var(--white);">
+      <div class="container">
+        <div class="reveal">
+          <div class="section-tag">The Challenge</div>
+          <h2 class="section-title">Your best people <span class="red">can't scale.</span><br>Until now.</h2>
+        </div>
+        <div class="ps-grid">
+          <div class="ps-col">
+            <div class="ps-col-tag prob">The Problem</div>
+            <div class="ps-issue">
+              <div class="ps-issue-title">AI is changing how business gets done</div>
+              <div class="ps-issue-desc">The tools, processes, and services that once set you apart are being replicated by off-the-shelf AI — fast. If your competitors get there first, catching up becomes very expensive.</div>
+            </div>
+            <div class="ps-issue">
+              <div class="ps-issue-title">Generic AI isn't enough</div>
+              <div class="ps-issue-desc">Most AI tools are built for everyone, which means they're optimised for no one. They don't know your methods, your standards, or what makes your organisation's output recognisably yours.</div>
+            </div>
+            <div class="ps-issue">
+              <div class="ps-issue-title">Expertise walks out the door</div>
+              <div class="ps-issue-desc">When your best people leave, retire, or move on, they take irreplaceable knowledge with them. Institutional memory is fragile, and the cost of losing it compounds over time.</div>
+            </div>
+          </div>
+          <div class="ps-col sol">
+            <div class="ps-col-tag soln">What Imprint Does</div>
+            <div class="ps-sol-item">
+              <div class="ps-sol-title">Capture what makes your people exceptional</div>
+              <div class="ps-sol-desc">Imprint provides the foundational framework to capture how your best people think and work — the expertise, judgment, tone, standards, and methodology that make your organisation's output distinctively yours. Your methods stay yours — private, protected, and never used to train anyone else's system.</div>
+            </div>
+            <div class="ps-sol-item">
+              <div class="ps-sol-title">Encode it into AI that's authentically you</div>
+              <div class="ps-sol-desc">Imprint agents don't just replicate tasks — they replicate the quality and judgment of your top performers. Always available, always consistent, never having a bad day. Your AI, not a generic alternative.</div>
+            </div>
+            <div class="ps-sol-item">
+              <div class="ps-sol-title">Scale without scaling headcount</div>
+              <div class="ps-sol-desc">Your Imprint agents work through shared playbooks — in coordination, just like a well-run team. Consistent, high-quality output that scales with your business across teams, geographies, and languages.</div>
+            </div>
+            <div class="ps-sol-item">
+              <div class="ps-sol-title">Preserve institutional knowledge at scale</div>
+              <div class="ps-sol-desc">Knowledge preservation and institutional memory built in. The expertise that took years to develop becomes a durable, scalable asset — not something that leaves with your best people.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background:var(--off-white);">
+      <div class="container">
+        <div class="reveal">
+          <div class="section-tag">The Imprint Methodology</div>
+          <h2 class="section-title">Not generic AI.<br><span class="red">Your AI.</span></h2>
+          <p class="section-sub">Imprint is the methodology and technology that powers the People pillar. It's not a product you buy — it's the way we work. That makes it stickier, harder to compare to competitors, and impossible to replicate without your organisation's unique input.</p>
+        </div>
+        <div class="hiw-grid">
+          <div class="hiw-step reveal" data-num="1">
+            <div class="hiw-inner">
+              <div class="hiw-num">Step 01</div>
+              <div class="hiw-title">Identify what matters most</div>
+              <div class="hiw-desc">We work with you to pinpoint the high-value expertise, decisions, and outputs where encoding your best people into AI will have the biggest impact — for your business and your clients.</div>
+            </div>
+          </div>
+          <div class="hiw-step reveal" data-num="2">
+            <div class="hiw-inner">
+              <div class="hiw-num">Step 02</div>
+              <div class="hiw-title">Capture your expertise</div>
+              <div class="hiw-desc">Together, we build Imprint around the knowledge, judgment, tone, and approach of your best people — so your AI reflects the real you: your standards, your methodology, your way of thinking.</div>
+            </div>
+          </div>
+          <div class="hiw-step reveal" data-num="3">
+            <div class="hiw-inner">
+              <div class="hiw-num">Step 03</div>
+              <div class="hiw-title">Deploy and scale</div>
+              <div class="hiw-desc">Your Imprint agents go live, working through shared playbooks to deliver consistent, on-brand results — across teams, geographies, and languages — the way you'd want them done, every time.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background:var(--white);">
+      <div class="container">
+        <div class="reveal">
+          <div class="section-tag">Common Questions</div>
+          <h2 class="section-title">Frequently<br>asked.</h2>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">What makes Imprint different from ChatGPT or other AI tools?
+              <span class="faq-icon">+</span></button>
+            <div class="faq-a">Most AI tools are general-purpose platforms — they haven't been trained on how your business works. Unlike rigid off-the-shelf platforms, Imprint acts as a flexible framework built specifically around your expertise, your standards, and your workflows. It adapts to you, not the other way around. It's your AI, not a shared one. Your data is never used to train our models or shared with other clients.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">Can we build Imprint around specific people on our team?
+              <span class="faq-icon">+</span></button>
+            <div class="faq-a">Yes. Imprint is designed to capture the knowledge and judgment of particular subject-matter experts — so the AI reflects the people who make your business great.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">Do you use our data to train your AI? <span
+                class="faq-icon">+</span></button>
+            <div class="faq-a">No. Your data stays yours. It's never used to improve our models or shared with other clients.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">How quickly can we get started? <span
+                class="faq-icon">+</span></button>
+            <div class="faq-a">Most clients have their first Imprint agent live remarkably fast — a fraction of the time of traditional AI deployments.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">Who owns the AI we build? <span
+                class="faq-icon">+</span></button>
+            <div class="faq-a">You do. Fully.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">Can Imprint run on our own infrastructure? <span
+                class="faq-icon">+</span></button>
+            <div class="faq-a">Yes, we offer private hosting options for businesses that need it.</div>
+          </div>
+        </div>
+        <div style="margin-top:32px;font-size:14px;color:var(--mid-gray);">Still have questions? <a href="#"
+            onclick="showPage('contact');return false;" style="color:var(--blue);">Email us at
+            hello@agenticinsights.com</a></div>
+      </div>
+    </section>
+
+    <div class="cta-banner">
+      <div class="cta-banner-grid"></div>
+      <div class="cta-inner">
+        <div>
+          <div class="cta-tag">People Pillar · Powered by Imprint</div>
+          <h2 class="cta-h2">Your AI.<br><span>Not generic AI.</span></h2>
+          <p class="cta-p">Encode what makes your organisation unique into agents that scale it — consistently, and authentically.</p>
+        </div>
+        <div class="cta-actions">
+          <a href="#" class="btn-primary" onclick="showPage('contact');return false;">Get in Touch <svg width="14"
+              height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg></a>
+          <a href="#" class="btn-outline" style="color:var(--white);border-color:rgba(255,255,255,0.2);"
+            onclick="showPage('engage');return false;">View Engagement Model</a>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /page-people -->
+
+
+  <!-- ══════════════════════════════════
+     PAGE: ENGAGEMENT MODEL
+══════════════════════════════════ -->
+  <div class="page" id="page-engage">
+
+    <section class="engage-hero">
+      <div class="engage-hero-inner">
+        <div>
+          <div class="section-tag">How We Work</div>
+          <h1 class="engage-tagline">Not plug-and-play.<br><span class="red">Plug</span> and<br><span
+              class="outline">Transform.</span></h1>
+        </div>
+        <div>
+          <p class="engage-sub">Our engagement model is built around value, not activity. Every step delivers measurable
+            impact — quickly, clearly, and with your team at the centre of it.</p>
+          <a href="#" class="btn-primary" style="margin-top:32px" onclick="showPage('contact');return false;">Start Your
+            Journey <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background:var(--white);">
+      <div class="container">
+        <div class="reveal" style="margin-bottom:16px;">
+          <div class="section-tag">Our Process</div>
+          <h2 class="section-title">A simple<br><span class="red">4-step</span> process.</h2>
+          <p class="section-sub">Designed to move fast, reduce risk, and get you to value as quickly as possible.</p>
+        </div>
+        <div class="steps-timeline">
+          <div class="step-row reveal">
+            <div class="step-left">
+              <div class="step-dot">01</div>
+            </div>
+            <div class="step-content">
+              <div class="step-num">Step 01</div>
+              <div class="step-title">Discover</div>
+              <div class="step-desc">We embed with your team to uncover high-value decisions, processes, and commercial
+                opportunities worth encoding into AI. This phase combines deep-dive workshops, expert interviews, and
+                business case development — designed to identify not just what AI can do, but what it should do for your
+                specific competitive context.</div>
+              <div class="step-tags"><span class="step-tag">Workshops</span><span class="step-tag">Expert
+                  Interviews</span><span class="step-tag">Business Case</span><span class="step-tag">Use Case
+                  Prioritisation</span></div>
+            </div>
+          </div>
+          <div class="step-row reveal">
+            <div class="step-left">
+              <div class="step-dot">02</div>
+            </div>
+            <div class="step-content">
+              <div class="step-num">Step 02</div>
+              <div class="step-title">Encode</div>
+              <div class="step-desc">We translate your best thinking into agentic behaviour — capturing structure,
+                nuance, risk, and trade-offs through natural collaboration with your subject-matter experts. This isn't
+                data entry: it's an intelligent encoding of how your best people think on their best day, turned into a
+                repeatable, scalable AI playbook.</div>
+              <div class="step-tags"><span class="step-tag">Expert Capture</span><span class="step-tag">Logic
+                  Mapping</span><span class="step-tag">Agent Training</span><span class="step-tag">Playbook
+                  Design</span></div>
+            </div>
+          </div>
+          <div class="step-row reveal">
+            <div class="step-left">
+              <div class="step-dot">03</div>
+            </div>
+            <div class="step-content">
+              <div class="step-num">Step 03</div>
+              <div class="step-title">Deploy</div>
+              <div class="step-desc">We build, test, and launch your AI agents — hosted on our platform or yours.
+                Post-deployment support is baked into every engagement, ensuring your team is confident using, adapting,
+                and trusting your new agentic workforce from day one.</div>
+              <div class="step-tags"><span class="step-tag">Agent Deployment</span><span
+                  class="step-tag">Integration</span><span class="step-tag">User Enablement</span><span
+                  class="step-tag">Go-Live Support</span></div>
+            </div>
+          </div>
+          <div class="step-row reveal">
+            <div class="step-left">
+              <div class="step-dot">04</div>
+            </div>
+            <div class="step-content">
+              <div class="step-num">Step 04</div>
+              <div class="step-title">Review</div>
+              <div class="step-desc">Track how your AI agents perform with real-time insights, feedback loops, and
+                analytics. We make it easy to improve and scale what works — and adjust what doesn't. Your AI workforce
+                gets smarter over time, compounding your competitive advantage with every iteration.</div>
+              <div class="step-tags"><span class="step-tag">Performance Dashboards</span><span class="step-tag">Feedback
+                  Loops</span><span class="step-tag">Continuous Improvement</span><span class="step-tag">Scale
+                  Planning</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background:var(--off-white);">
+      <div class="container">
+        <div class="reveal">
+          <div class="section-tag">Engagement Options</div>
+          <h2 class="section-title">Choose your<br><span class="red">entry point.</span></h2>
+          <p class="section-sub">Whether you're exploring AI for the first time or ready to deploy an enterprise-scale
+            agentic workforce, we have an engagement to match.</p>
+        </div>
+        <div class="pricing-grid">
+          <div class="pc-card reveal">
+            <div class="pc-title">Discovery Sprint</div>
+            <div class="pc-price">£5k</div>
+            <div class="pc-price-note">Fixed fee · 2 weeks</div>
+            <div class="pc-divider"></div>
+            <div class="pc-desc">For teams wanting to understand their AI opportunity across Product, Process, and People before committing to a full build. Fast, focused, and high-signal.</div>
+            <div class="pc-feats">
+              <div class="pc-feat"><span class="pc-feat-icon">▸</span>2-day discovery workshop</div>
+              <div class="pc-feat"><span class="pc-feat-icon">▸</span>Product audit: where AI adds value in your roadmap</div>
+              <div class="pc-feat"><span class="pc-feat-icon">▸</span>Process scan: highest-impact CX/EX opportunities</div>
+              <div class="pc-feat"><span class="pc-feat-icon">▸</span>People assessment: which expertise to encode</div>
+              <div class="pc-feat"><span class="pc-feat-icon">▸</span>Business case &amp; ROI model</div>
+            </div>
+            <a href="#" class="btn-outline" onclick="showPage('contact');return false;">Get Started</a>
+          </div>
+          <div class="pc-card featured reveal">
+            <div class="pc-badge">Most Popular</div>
+            <div class="pc-title">Build &amp; Deploy</div>
+            <div class="pc-price">£25k<span
+                style="font-family:var(--font-body);font-size:18px;font-weight:300;">+</span></div>
+            <div class="pc-price-note">Per pillar · 4–8 weeks</div>
+            <div class="pc-divider"></div>
+            <div class="pc-desc">End-to-end delivery of your first production AI engagement — typically scoped to one pillar (Product, Process, or People) to maintain focus and maximise impact.</div>
+            <div class="pc-feats">
+              <div class="pc-feat"><span class="pc-feat-icon">▸</span>Everything in Discovery</div>
+              <div class="pc-feat"><span class="pc-feat-icon">▸</span>Expert encoding sessions</div>
+              <div class="pc-feat"><span class="pc-feat-icon">▸</span>Full agent build &amp; testing</div>
+              <div class="pc-feat"><span class="pc-feat-icon">▸</span>Platform deployment</div>
+              <div class="pc-feat"><span class="pc-feat-icon">▸</span>60-day post-launch support</div>
+            </div>
+            <a href="#" class="btn-primary" onclick="showPage('contact');return false;">Get Started <svg width="14"
+                height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg></a>
+          </div>
+          <div class="pc-card reveal">
+            <div class="pc-title">Agentic Enterprise</div>
+            <div class="pc-price">Custom</div>
+            <div class="pc-price-note">Bespoke · Ongoing</div>
+            <div class="pc-divider"></div>
+            <div class="pc-desc">For organisations ready for full transformation — AI in your products, AI in your processes, and AI-powered talent amplification across your organisation. This is where all three pillars come together.</div>
+            <div class="pc-feats">
+              <div class="pc-feat"><span class="pc-feat-icon">▸</span>Multi-pillar deployment</div>
+              <div class="pc-feat"><span class="pc-feat-icon">▸</span>Enterprise security &amp; compliance</div>
+              <div class="pc-feat"><span class="pc-feat-icon">▸</span>Custom integrations &amp; APIs</div>
+              <div class="pc-feat"><span class="pc-feat-icon">▸</span>Dedicated success team</div>
+              <div class="pc-feat"><span class="pc-feat-icon">▸</span>Ongoing evolution &amp; scale</div>
+            </div>
+            <a href="#" class="btn-outline" onclick="showPage('contact');return false;">Talk to Us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="cta-banner">
+      <div class="cta-banner-grid"></div>
+      <div class="cta-inner">
+        <div>
+          <div class="cta-tag">Ready to Begin?</div>
+          <h2 class="cta-h2">Get your<br><span>agentic</span> edge.</h2>
+          <p class="cta-p">From first conversation to live AI agent in weeks.</p>
+        </div>
+        <div class="cta-actions">
+          <a href="#" class="btn-primary" onclick="showPage('contact');return false;">Contact Us <svg width="14"
+              height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg></a>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /page-engage -->
+
+
+  <!-- ══════════════════════════════════
+     PAGE: CONTACT
+══════════════════════════════════ -->
+  <div class="page" id="page-contact">
+
+    <section class="contact-hero">
+      <div class="contact-hero-inner">
+        <div
+          style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--blue);margin-bottom:18px;display:flex;align-items:center;gap:8px;">
+          <span style="width:20px;height:1.5px;background:var(--blue);display:inline-block;"></span>Get In Touch
+        </div>
+        <h1 class="contact-h1">Let's<br><span>Talk.</span></h1>
+        <p class="contact-sub">Whether you're exploring use cases, want to see a demo, or have a specific problem in
+          mind — we're here to help you move fast.</p>
+      </div>
+    </section>
+
+    <div class="contact-body">
+      <div class="contact-grid">
+        <div>
+          <div
+            style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--blue);margin-bottom:32px;display:flex;align-items:center;gap:8px;">
+            <span style="width:20px;height:1.5px;background:var(--blue);display:inline-block;"></span>Reach Us
+          </div>
+          <div class="contact-method">
+            <div class="cm-label">Email</div>
+            <div class="cm-value"><a href="mailto:hello@agenticinsights.com">hello@agenticinsights.com</a></div>
+          </div>
+          <div class="contact-method">
+            <div class="cm-label">Phone</div>
+            <div class="cm-value">+44 (0)20 0000 0000</div>
+          </div>
+          <div class="contact-method">
+            <div class="cm-label">Headquarters</div>
+            <div class="cm-value">London, United Kingdom</div>
+          </div>
+          <div class="contact-method">
+            <div class="cm-label">Operations</div>
+            <div class="cm-value">Global · Remote-first delivery</div>
+          </div>
+          <div class="contact-book">
+            <div class="contact-book-title">Book a Meeting</div>
+            <div class="contact-book-desc">Whilst our technology is cutting-edge, we still love an old-fashioned
+              conversation. Book a slot directly in our calendar to explore your use case, see a demo, or just have a
+              chat about your AI journey.</div>
+            <a href="#" class="btn-primary">Book a Call <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg></a>
+          </div>
+          <div style="margin-top:40px;padding:28px 0;border-top:1px solid var(--light-gray);">
+            <div style="font-family:var(--font-display);font-size:26px;margin-bottom:8px;">Product. Process. People.</div>
+            <div style="font-size:14px;font-weight:300;color:var(--charcoal);line-height:1.7;">Three pillars. One agentic edge. From first conversation to live transformation in weeks — not months.</div>
+          </div>
+        </div>
+        <div>
+          <div class="form-card">
+            <div class="form-title">Send a Message</div>
+            <div class="form-sub">Drop us a message and we'll get back to you within one business day.</div>
+
+            <!-- Honeypot Field (Hidden from humans, visible to bots) -->
+            <div class="form-group" style="display:none;" aria-hidden="true">
+              <label class="form-label">Phone Label (Do Not Fill)</label>
+              <input type="text" id="contact-phone-honeypot" class="form-input" autocomplete="off" tabindex="-1" />
+            </div>
+
+            <div class="form-group"><label class="form-label">Full Name</label><input type="text" id="contact-name"
+                class="form-input" placeholder="Jane Smith" /></div>
+            <div class="form-group"><label class="form-label">Email Address</label><input type="email"
+                id="contact-email" class="form-input" placeholder="jane@company.com" /></div>
+            <div class="form-group"><label class="form-label">Company</label><input type="text" id="contact-company"
+                class="form-input" placeholder="Your Company Name" /></div>
+            <div class="form-group">
+              <label class="form-label">What are you looking to solve?</label>
+              <select id="contact-topic" class="form-select">
+                <option value="" disabled selected>Select an area…</option>
+                <option>Product — AI in Your Products</option>
+                <option>Process — AI in Your Operations</option>
+                <option>People — Imprint &amp; Expertise Scaling</option>
+                <option>Engagement Model Enquiry</option>
+                <option>General Enquiry</option>
+              </select>
+            </div>
+            <div class="form-group"><label class="form-label">Message</label><textarea id="contact-message"
+                class="form-textarea"
+                placeholder="Tell us about your challenge, your business, or what you'd like to explore…"></textarea>
+            </div>
+            <button class="form-submit" id="formSubmit">Send Message <svg width="16" height="16" viewBox="0 0 16 16"
+                fill="none">
+                <path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg></button>
+            <div class="form-note">We respond to all enquiries within one business day. No spam, ever.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /page-contact -->
+
+
+  <!-- ═══════ FOOTER ═══════ -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-logo">
+            <div class="footer-logo-mark">
+              <svg viewBox="0 0 30 30" fill="none">
+                <polygon points="15,2 28,27 2,27" fill="none" stroke="#008DFA" stroke-width="2.2" />
+                <polygon points="15,9 22,24 8,24" fill="#008DFA" />
+              </svg>
+            </div>
+            <span class="footer-logo-name">Agentic<span>Insights</span></span>
+          </div>
+          <p class="footer-tagline">Transformation partners for enterprise AI — across Product, Process, and People. Built for leaders who need to move first.</p>
+        </div>
+        <div>
+          <div class="footer-col-title">Company</div>
+          <div class="footer-links">
+            <a href="#" onclick="showPage('home');return false;">Home</a>
+            <a href="#" onclick="showPage('product');return false;">Product</a>
+            <a href="#" onclick="showPage('process');return false;">Process</a>
+            <a href="#" onclick="showPage('people');return false;">People</a>
+            <a href="#" onclick="showPage('engage');return false;">Engagement Model</a>
+            <a href="#" onclick="showPage('contact');return false;">Contact</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Solutions</div>
+          <div class="footer-links">
+            <a href="#" onclick="showPage('product');return false;">Product</a>
+            <a href="#" onclick="showPage('process');return false;">Process</a>
+            <a href="#" onclick="showPage('people');return false;">People / Imprint</a>
+            <a href="#" onclick="showPage('engage');return false;">Engagement Model</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Contact</div>
+          <div class="footer-links">
+            <a href="mailto:hello@agenticinsights.com">hello@agenticinsights.com</a>
+            <a href="#" onclick="showPage('contact');return false;">Get in Touch</a>
+            <a href="#">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copy">© 2026 Agentic Insights Ltd. All rights reserved.</div>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // PAGE NAV
+    function showPage(id) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+      const page = document.getElementById('page-' + id);
+      if (page) page.classList.add('active');
+      const navEl = document.getElementById('nav-' + id);
+      if (navEl) navEl.classList.add('active');
+
+      // Close mobile menu if open
+      const navLinks = document.querySelector('.nav-links');
+      const menuToggle = document.getElementById('menuToggle');
+      if (navLinks.classList.contains('mobile-active')) {
+        navLinks.classList.remove('mobile-active');
+        menuToggle.classList.remove('active');
+      }
+
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      setTimeout(initReveal, 60);
+    }
+
+    // SCROLL REVEAL
+    function initReveal() {
+      const els = document.querySelectorAll('.page.active .reveal:not(.visible)');
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            const siblings = Array.from(e.target.parentElement.children).filter(c => c.classList.contains('reveal'));
+            const idx = siblings.indexOf(e.target);
+            setTimeout(() => e.target.classList.add('visible'), idx * 80);
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      els.forEach(el => obs.observe(el));
+    }
+    initReveal();
+
+    // SCROLL NAV EFFECT
+    window.addEventListener('scroll', () => {
+      document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 20);
+    }, { passive: true });
+
+    // MOBILE MENU
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (menuToggle) {
+      menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        navLinks.classList.toggle('mobile-active');
+      });
+    }
+
+    // INDUSTRY TABS
+    function selInd(btn, id) {
+      document.querySelectorAll('.ind-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.ind-detail').forEach(d => d.classList.remove('active'));
+      btn.classList.add('active');
+      const el = document.getElementById('ind-' + id);
+      if (el) el.classList.add('active');
+    }
+
+    // FAQ
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-icon').textContent = '+';
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.querySelector('.faq-icon').textContent = '−';
+      }
+    }
+
+    // FORM
+    const formBtn = document.getElementById('formSubmit');
+    if (formBtn) {
+      formBtn.addEventListener('click', async function () {
+        const orig = this.innerHTML;
+        this.innerHTML = 'Sending...';
+        this.disabled = true;
+
+        const name = document.getElementById('contact-name').value;
+        const email = document.getElementById('contact-email').value;
+        const company = document.getElementById('contact-company').value;
+        const topic = document.getElementById('contact-topic').value;
+        const message = document.getElementById('contact-message').value;
+        const honeypot = document.getElementById('contact-phone-honeypot').value;
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!name || !email || !message) {
+          alert('Please fill in all required fields: Name, Email, and Message.');
+          this.innerHTML = orig;
+          this.disabled = false;
+          return;
+        }
+
+        if (!emailRegex.test(email)) {
+          alert('Please enter a valid email address.');
+          this.innerHTML = orig;
+          this.disabled = false;
+          return;
+        }
+
+        try {
+          const res = await fetch('http://localhost:8000/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, email, company, topic, message, honeypot })
+          });
+
+          if (res.ok) {
+            this.innerHTML = 'Message Sent ✓';
+            this.style.background = '#22c55e'; // green success
+            // Option to reset form:
+            // document.getElementById('contact-name').value = '';
+            // ...
+          } else {
+            const data = await res.json();
+            alert('Error sending message: ' + (data.error || 'Unknown error'));
+            this.innerHTML = orig;
+            this.disabled = false;
+          }
+        } catch (err) {
+          console.error(err);
+          alert('Network error. Is the backend server running?');
+          this.innerHTML = orig;
+          this.disabled = false;
+        }
+      });
+    }
+  </script>
+</body>
+
+</html>

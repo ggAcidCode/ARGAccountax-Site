@@ -214,6 +214,54 @@
     },
     "copyright": "© {year} ARG Accountax. All rights reserved. Professional Tax Services in Ontario."
   },
+  "Refer": {
+    "heroBadge": "Referral Rewards Program",
+    "heroTitle1": "Share the Love.",
+    "heroTitle2": "Refer a Friend, ",
+    "heroTitleGold": "Get Rewarded.",
+    "heroDesc": "You trust us with your taxes — your friends will too. Refer someone and earn 15% off your tax prep when they file with us.",
+    "validDate": "⏳ Valid from Apr 13, 2026 to May 31, 2026",
+    "cta": "Submit Referral Form",
+    "howItWorksLabel": "How It Works",
+    "howItWorksTitle": "Three simple steps",
+    "steps": {
+      "step1": {
+        "title": "Submit Your Referral",
+        "desc": "Click the link below to fill out our quick referral form with your details and your friend's info. We'll handle the rest."
+      },
+      "step2": {
+        "title": "Your Friend Files With Us",
+        "desc": "We'll reach out to your friend with a personalized invitation. When they complete their tax filing with us, the reward unlocks."
+      },
+      "step3": {
+        "title": "You Get Rewarded",
+        "desc": "Once their return is filed and paid, you receive 15% off your next invoice — or if you've already filed this year, we'll send your reward directly via Interac e-Transfer."
+      }
+    },
+    "rewardLabel": "Your Reward",
+    "rewardTitle": "You refer, you get rewarded",
+    "cardBadge": "MOST POPULAR",
+    "cardType": "Personal Tax Return",
+    "cardAmount": "15%",
+    "cardOff": "off",
+    "cardSubtitle": "Your reward for every successful referral",
+    "features": {
+      "f1": "15% off your next tax prep fee for each friend who files with us",
+      "f2": "Already filed this year? We'll send your reward via Interac e-Transfer",
+      "f3": "Reward unlocked once your friend's return is filed & paid",
+      "f4": "No limit on referrals — refer 5 friends, earn 5 rewards"
+    },
+    "termsTitle": "Program Terms",
+    "terms": {
+      "t1": "The 15% reward applies to the referrer only and is earned once the referred client's return is filed and payment is received in full.",
+      "t2": "If the referrer has not yet filed for the current tax year, the reward is applied as a credit toward their upcoming tax filing invoice.",
+      "t3": "If the referrer has already filed and paid for the current tax year, the reward amount (15% of their filing fee) will be sent via Interac e-Transfer to the email on file.",
+      "t4": "Referral rewards cannot be combined with other promotional offers.",
+      "t5": "There is no limit to the number of friends you can refer — each qualifying referral earns a separate reward.",
+      "t6": "This program is valid between Apr 13, 2026 to May 31, 2026.",
+      "t7": "Self-referrals or referring existing clients do not qualify."
+    }
+  },
   "Common": {
     "loading": "Loading...",
     "error": "An error occurred",

@@ -62,6 +62,15 @@ export default function HeroSection() {
                 <span>{t('phone')}</span>
               </div>
             </a>
+            <Link
+              href="/refer"
+              className="inline-flex items-center justify-between sm:justify-center gap-2 bg-[#f0fdf4] text-[#15803d] border-2 border-[#15803d]/30 hover:bg-white font-semibold px-6 sm:px-8 py-3.5 rounded-xl transition-all hover:-translate-y-0.5 text-sm sm:text-base w-full sm:w-auto"
+            >
+              <div className="flex items-center gap-2">
+                <span className="material-symbols-outlined text-[18px]">volunteer_activism</span>
+                <span>{t('referLink')}</span>
+              </div>
+            </Link>
           </div>
         </div>
       </div>

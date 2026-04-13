@@ -98,6 +98,9 @@ export default function Header() {
             <Link href="/blog" className="text-slate-600 hover:text-[#15803d] transition-colors">
               {t('blog')}
             </Link>
+            <Link href="/refer" className="text-[#15803d] hover:text-[#166534] font-semibold transition-colors">
+              {t('refer')}
+            </Link>
             <Link
               href="/contact"
               className="bg-[#15803d] hover:bg-[#166534] text-white px-5 py-2 rounded-lg transition-colors"
@@ -169,6 +172,10 @@ export default function Header() {
               {t('blog')}
             </MobileLink>
 
+            <MobileLink href="/refer" onClick={() => setMobileOpen(false)}>
+              {t('refer')}
+            </MobileLink>
+
             <Link
               href="/contact"
               className="block text-center bg-[#15803d] hover:bg-[#166534] text-white px-5 py-2.5 rounded-lg transition-colors text-sm font-medium mt-2"
@@ -188,7 +195,7 @@ function MobileLink({
   onClick,
   children,
 }: {
-  href: '/' | '/blog';
+  href: '/' | '/blog' | '/refer';
   onClick: () => void;
   children: React.ReactNode;
 }) {
